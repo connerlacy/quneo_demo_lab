@@ -1,16 +1,16 @@
 #include "MidiManager.h"
 
+const uint8 preset1Loaded[15] = {0x7E , 0x00 , 0x06 , 0x03 , 0x00 , 0x01 , 0x5F , 0x1E , 0x00 , 0x00 , 0x00 , 0x18 , 0x12 , 0x00 , 0x00};
+const uint8 loadPreset1[15] =   {0x00 , 0x01 , 0x5F , 0x7A , 0x1E , 0x00 , 0x01 , 0x00 , 0x02 , 0x30 , 0x00 , 0x6F , 0x35 , 0x00 , 0x10};
+
 
 MidiManager::MidiManager(AudioEngine* audioEngine_) : audioEngine(audioEngine_), midiNote(0), velocity(0) 
 
 {
-    
     //------ Set up MIDI input device
-	//midiInput = MidiInput::openDevice(MidiInput::getDefaultDeviceIndex(),this);
-    
     for (int i =0; i < MidiInput::getDevices().size(); i++)
     {
-        std::cout << String("midi device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
+        std::cout << String("midi input device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
         
         if(MidiInput::getDevices()[i].contains(String("QUNEO")))
         {
@@ -18,13 +18,27 @@ MidiManager::MidiManager(AudioEngine* audioEngine_) : audioEngine(audioEngine_),
         }
     }
 	
-    
-    
     if(midiInput) 
     {
         midiInput->start();
     }
-
+    
+    //------ Set up MIDI output device
+    for (int i =0; i < MidiOutput::getDevices().size(); i++)
+    {
+        std::cout << String("midi output device: ") << MidiOutput::getDevices()[i] << String(" index:") << i << "\n";
+        
+        if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
+        {
+            midiOutput = MidiOutput::openDevice(i);
+        }
+    }
+    
+	//Load Preset 0 on board
+    if(midiOutput) 
+    {
+        midiOutput->sendMessageNow(MidiMessage::createSysExMessage(loadPreset1,17));
+    }
 }
 
 MidiManager::~MidiManager()
@@ -34,6 +48,34 @@ MidiManager::~MidiManager()
 
 void MidiManager::handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message)
 {
+    //-------------- Handle SysEx Messages
+    if(message.isSysEx() && message.getSysExDataSize() == 15)
+    {
+        bool isPresetChange = false;
+        
+        //Check header / if a preset change message
+        for (int i =0; i<14; i++) 
+        {
+            if(preset1Loaded[i] == message.getSysExData()[i])
+            {
+                isPresetChange = true;
+            }
+            else
+            {
+                isPresetChange = false;
+                break;
+            }
+        }
+        
+        //If sysex message is a preset change
+        if(isPresetChange && message.getSysExData()[14] != 0x00)
+        {
+            midiOutput->sendMessageNow(MidiMessage::createSysExMessage(loadPreset1,17));
+            //std::cout << "Preset 0 reloaded from preset: " << (int)message.getSysExData()[14]<<"\n";
+        }
+    }
+    
+    //-------------- Handle Notes and CC Messags
     if(message.getChannel())
     {
         //------------------------------- Notes
@@ -42,25 +84,24 @@ void MidiManager::handleIncomingMidiMessage (MidiInput* source, const MidiMessag
             //----------- Pads
             if(message.getNoteNumber() >= 36 && message.getNoteNumber() <=51)
             {
-                //printf("note: %i    velocity: %i\n", message.getNoteNumber(), message.getVelocity());
-            
+                                
                 String noteMsg;
                 String noteNum;
                 String noteVel;
-            
-            
+                
+                
                 if(message.getVelocity() != 0)
                 {
                     //Turn note on
                     //audioEngine->synth.noteOn(1,message.getNoteNumber(),100.00/127.00);
-                
+                    
                     //Format message for talking to graphics
                     noteMsg = String("Note On");
                     noteNum = String(message.getNoteNumber());
                     noteVel = String(message.getVelocity());
-                
+                    
                     noteMsg.append(noteNum, 20);
-                
+                    
                     sendActionMessage(noteMsg);
                 }
                 else
@@ -97,7 +138,7 @@ void MidiManager::handleIncomingMidiMessage (MidiInput* source, const MidiMessag
                 }
                 
             }
-
+            
             //1
             else if(message.getNoteNumber() == 22)
             {

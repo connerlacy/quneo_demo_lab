@@ -101,7 +101,7 @@ void Sampler::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
         //Loop funky drummer
         if((sampleCount % 108544) == 0)
         {
-            std::cout << sampleCount << " START-------------\n";
+            //std::cout << sampleCount << " START-------------\n";
             looperMidi.addEvent(MidiMessage::noteOn(1,127,1.0f), i);
         }
     }

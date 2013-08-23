@@ -41,6 +41,7 @@ public:
 private:
 	
 	ScopedPointer<MidiInput> midiInput;
+    ScopedPointer<MidiOutput> midiOutput;
 	
 	int midiNote;
 	float midiNoteHz;
