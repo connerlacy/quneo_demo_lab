@@ -7,43 +7,100 @@ const uint8 loadPreset1[15] =   {0x00 , 0x01 , 0x5F , 0x7A , 0x1E , 0x00 , 0x01 
 MidiManager::MidiManager(AudioEngine* audioEngine_) : audioEngine(audioEngine_), midiNote(0), velocity(0) 
 
 {
-    //------ Set up MIDI input device
-    for (int i =0; i < MidiInput::getDevices().size(); i++)
-    {
-        std::cout << String("midi input device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
-        
-        if(MidiInput::getDevices()[i].contains(String("QUNEO")))
-        {
-            midiInput = MidiInput::openDevice(i, this);
-        }
-    }
-	
-    if(midiInput) 
-    {
-        midiInput->start();
-    }
+    midiInput = nullptr;
+    midiOutput = nullptr;
     
-    //------ Set up MIDI output device
-    for (int i =0; i < MidiOutput::getDevices().size(); i++)
-    {
-        std::cout << String("midi output device: ") << MidiOutput::getDevices()[i] << String(" index:") << i << "\n";
-        
-        if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
-        {
-            midiOutput = MidiOutput::openDevice(i);
-        }
-    }
-    
-	//Load Preset 0 on board
-    if(midiOutput) 
-    {
-        midiOutput->sendMessageNow(MidiMessage::createSysExMessage(loadPreset1,17));
-    }
+    //Begin polling
+    this->startTimer(100);
 }
 
 MidiManager::~MidiManager()
 {
 	midiInput->stop();
+}
+
+void MidiManager::timerCallback()
+{
+    static bool inputConnected = false;
+    static bool outputConnected = false;
+    
+    static bool checkDevices = false;
+    
+    static int numInputs  = -1;
+    static int numOutputs = -1;
+    
+    
+    //Should we re-check devices or not (based on a difference in number)
+    if(numInputs != MidiInput::getDevices().size() || numOutputs != MidiOutput::getDevices().size())
+    {
+        numInputs = MidiInput::getDevices().size();
+        numOutputs = MidiOutput::getDevices().size();
+        checkDevices = true;
+    }
+    else
+    {
+        checkDevices = false;
+    }
+    
+    if(checkDevices)
+    {
+        
+        //------ Set up MIDI input device
+        for (int i =0; i < MidiInput::getDevices().size(); i++)
+        {
+            //std::cout << String("midi input device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
+            
+            if(MidiInput::getDevices()[i].contains(String("QUNEO")))
+            {
+                midiInput = MidiInput::openDevice(i, this);
+            }
+            else
+            {
+                midiInput = nullptr;
+            }
+        }
+        
+        if(midiInput) 
+        {
+            inputConnected = true;
+            midiInput->start();
+        }
+        else
+        {
+            inputConnected = false;
+            //std::cout << "Input not connected\n";
+        }
+        
+        
+        //------ Set up MIDI output device
+        
+        for (int i =0; i < MidiOutput::getDevices().size(); i++)
+        {
+            //std::cout << String("midi output device: ") << MidiOutput::getDevices()[i] << String(" index:") << i << "\n";
+            
+            if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
+            {
+                midiOutput = MidiOutput::openDevice(i);
+            }
+            else
+            {
+                midiOutput = nullptr;
+            }
+        }
+        
+        //Load Preset 0 on board
+        if(midiOutput) 
+        {
+            outputConnected = true;
+            midiOutput->sendMessageNow(MidiMessage::createSysExMessage(loadPreset1,17));
+        }
+        else
+        {
+            outputConnected = false;
+            //std::cout << "Output note connected\n";
+        }
+        
+    }
 }
 
 void MidiManager::handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message)
@@ -84,7 +141,7 @@ void MidiManager::handleIncomingMidiMessage (MidiInput* source, const MidiMessag
             //----------- Pads
             if(message.getNoteNumber() >= 36 && message.getNoteNumber() <=51)
             {
-                                
+                
                 String noteMsg;
                 String noteNum;
                 String noteVel;

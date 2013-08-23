@@ -15,7 +15,8 @@
 #include "Sampler.h"
 
 class MidiManager : public MidiInputCallback,
-                    public ActionBroadcaster
+                    public ActionBroadcaster,
+                    public Timer
 {
 public:
 	
@@ -34,6 +35,7 @@ public:
     
 	//required of any superclass of MidiInputCallback.  This is called everytime a midi message is played
 	void handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message);
+    void timerCallback();
 
     AudioEngine* audioEngine;
     Sampler* sampler;
