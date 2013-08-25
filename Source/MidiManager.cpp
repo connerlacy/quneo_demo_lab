@@ -4,8 +4,11 @@ const uint8 preset1Loaded[15] = {0x7E , 0x00 , 0x06 , 0x03 , 0x00 , 0x01 , 0x5F 
 const uint8 loadPreset1[15] =   {0x00 , 0x01 , 0x5F , 0x7A , 0x1E , 0x00 , 0x01 , 0x00 , 0x02 , 0x30 , 0x00 , 0x6F , 0x35 , 0x00 , 0x10};
 
 
-MidiManager::MidiManager(AudioEngine* audioEngine_) : audioEngine(audioEngine_), midiNote(0), velocity(0) 
-
+MidiManager::MidiManager(AudioEngine* audioEngine_, PluginMessage* mw_) 
+:   audioEngine(audioEngine_),
+    mw(mw_),
+    midiNote(0), 
+    velocity(0)
 {
     midiInput = nullptr;
     midiOutput = nullptr;
@@ -99,7 +102,15 @@ void MidiManager::timerCallback()
             outputConnected = false;
             //std::cout << "Output note connected\n";
         }
-        
+    }
+    
+    if(outputConnected && inputConnected)
+    {
+        mw->setVisible(false);
+    }
+    else
+    {
+        mw->setVisible(true);
     }
 }
 

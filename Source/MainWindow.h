@@ -16,6 +16,9 @@
 #include "QuNeoGraph.h"
 #include "AudioEngine.h"
 #include "MidiManager.h"
+#include "PluginMessage.h"
+#include "AboutQuNeoDemo.h"
+#include "MouseMask.h"
 
 class AudioEngine;
 
@@ -30,10 +33,14 @@ public:
     
     QuNeoGraph* quNeoGraph;
     MidiManager* midiManager;
+    PluginMessage* pluginMessage;
 
     IIRFilterAudioSource* samplerFilter;
 
     void closeButtonPressed();
+    void showAbout();
+    
+    AboutQuNeoDemo* abq;
 
 
     /* Note: Be careful when overriding DocumentWindow methods - the base class
@@ -52,6 +59,9 @@ private:
     ScopedPointer<AudioEngine> audioEngine;
     
     Sampler* sampler;
+    
+    MenuBarComponent* menuBarModel;
+    MouseMask* mouseMask;
     //MidiBuffer* masterMidi;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainAppWindow)

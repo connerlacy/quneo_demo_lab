@@ -26,6 +26,7 @@ AudioEngine::AudioEngine()
     DirectoryIterator iter2(File(appPath + "/Contents/Resources/audio/pads/2"), true, "*.wav");
     DirectoryIterator iter3(File(appPath + "/Contents/Resources/audio/pads/3"), true, "*.wav");
     
+    
     uint32 i = 36; //Loweset Pad Note on Preset 1
     
     //Loop through samples in resources
@@ -52,52 +53,6 @@ AudioEngine::AudioEngine()
         //Inc note/pad number
         i++;
         
-        
-        //----- Rotary Samples
-        /*else if(currentSample.getFileName().contains("shepToneDown"))
-         {
-         ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new FileInputStream (currentSample),true));
-         
-         //std::cout << "length in samples: " << audioReader->lengthInSamples << "\n";
-         
-         oscSynth.addVoice(new SamplerVoice());
-         oscSynth.addVoice(new SamplerVoice());
-         
-         BigInteger notes;
-         notes.setRange (64, 127, true);
-         
-         oscSynth.addSound (new SamplerSound ("sample",
-         *audioReader,
-         notes,
-         64,   // root midi note
-         0.010,  // attack time
-         0.010,  // release time
-         10.0  // maximum sample length
-         
-         ));   
-         }
-         else if(currentSample.getFileName().contains("shepToneUp"))
-         {
-         ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new FileInputStream (currentSample),true));
-         
-         //std::cout << "length in samples: " << audioReader->lengthInSamples << "\n";
-         
-         oscSynth.addVoice(new SamplerVoice());
-         oscSynth.addVoice(new SamplerVoice());
-         
-         BigInteger notes;
-         notes.setRange (0, 64, true);
-         
-         oscSynth.addSound (new SamplerSound ("sample",
-         *audioReader,
-         notes,
-         0,   // root midi note
-         0.010,  // attack time
-         0.010,  // release time
-         10.0  // maximum sample length
-         
-         ));   
-         }*/
         
     }
     
@@ -175,6 +130,31 @@ AudioEngine::AudioEngine()
     }
     
     std::cout << "i -------------- " << i << "\n";
+    
+    //---------------------- Button Sound
+    //DirectoryIterator iterButtons(File(appPath + "/Contents/Resources/audio/buttons"), true, "*.wav");
+    
+    currentSample = File(appPath + "/Contents/Resources/audio/buttons/cheer.wav");
+    
+    ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new FileInputStream (currentSample),true));
+    
+    for(int b = 0; b < 16; b++)
+    {
+       synth.addVoice(new SamplerVoice()); 
+    }
+    
+    BigInteger notes;
+    notes.setRange (1, 1, true);
+    
+    synth.addSound (new SamplerSound ("sample",
+                                      *audioReader,
+                                      notes,
+                                      1,   // root midi note
+                                      0.005,  // attack time
+                                      0.005,  // release time
+                                      10.0  // maximum sample length
+                                      
+                                      ));
     
     //---------------------------------- Setup Oscillator
     oscSynth.addVoice(new SineWaveVoice(this));

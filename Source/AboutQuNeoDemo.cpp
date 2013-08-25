@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  24 Aug 2013 5:37:07pm
+  Creation date:  24 Aug 2013 8:58:35pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -33,7 +33,7 @@ AboutQuNeoDemo::AboutQuNeoDemo ()
     : label (0)
 {
     addAndMakeVisible (label = new Label (L"new label",
-                                          L"\nKeith McMillen Instruments\' QuNeo Demo\n\nWritten By:\nConner Lacy | conner@keithmcmillen.com\n[source available @ github.com/connerlacy]\n\nAudio Sample Support:\nDustin Schultz | dustin@keithmcmillen.com\nMatt Hettich | matt@keithmcmillen.com"));
+                                          L"\nKeith McMillen Instruments\' QuNeo Demo\n\nWritten By:\nConner Lacy | conner@keithmcmillen.com\n[source available @ github.com/connerlacy]\n\nThanks to:\n\nDustin Schultz | dustin@keithmcmillen.com\nMatt Hettich | matt@keithmcmillen.com\n\nfor their audio contributions."));
     label->setFont (Font (12.5000f, Font::plain));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
@@ -45,10 +45,16 @@ AboutQuNeoDemo::AboutQuNeoDemo ()
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (726, 600);
+    setSize (256, 169);
 
 
     //[Constructor] You can add your own custom stuff here..
+    animateOn = false;
+    color = 0xa6000000;
+    rd = 0x00000000;
+    gn = 0x00000000;
+    bl = 0x00000000;
+
     //[/Constructor]
 }
 
@@ -68,25 +74,44 @@ AboutQuNeoDemo::~AboutQuNeoDemo()
 void AboutQuNeoDemo::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
+    if (0)
+    {
+
     //[/UserPrePaint]
 
     g.setGradientFill (ColourGradient (Colour (0xa6000000),
-                                       208.0f, 184.0f,
+                                       0.0f, 0.0f,
                                        Colour (0xd26c6c6c),
-                                       504.0f, 352.0f,
+                                       256.0f, 136.0f,
                                        false));
-    g.fillRoundedRectangle (2.0f, 2.0f, 252.0f, 133.0f, 5.5000f);
+    g.fillRoundedRectangle (2.0f, 2.0f, 252.0f, 165.0f, 5.5000f);
 
     g.setColour (Colour (0xb3000000));
-    g.drawRoundedRectangle (2.0f, 2.0f, 252.0f, 133.0f, 5.5000f, 1.0000f);
+    g.drawRoundedRectangle (2.0f, 2.0f, 252.0f, 165.0f, 5.5000f, 1.0000f);
 
     //[UserPaint] Add your own custom painting code here..
+    }
+    else
+    {
+        //rd <<= 4;
+        //color =  0xff000000 | rd | gn | bl;
+
+        g.setGradientFill (ColourGradient (Colour (rd, gn, bl),
+                                           0.0f, 0.0f,
+                                           Colour (0xd26c6c6c),
+                                           256.0f, 136.0f,
+                                           false));
+        g.fillRoundedRectangle (2.0f, 2.0f, 252.0f, 165.0f, 5.5000f);
+
+        g.setColour (Colour (0xb3000000));
+            g.drawRoundedRectangle (2.0f, 2.0f, 252.0f, 165.0f, 5.5000f, 1.0000f);
+    }
     //[/UserPaint]
 }
 
 void AboutQuNeoDemo::resized()
 {
-    label->setBounds (10, 9, 235, 120);
+    label->setBounds (10, 9, 235, 151);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -94,6 +119,10 @@ void AboutQuNeoDemo::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void AboutQuNeoDemo::animate()
+{
+    this->repaint();
+}
 //[/MiscUserCode]
 
 
@@ -108,14 +137,14 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="AboutQuNeoDemo" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
-                 fixedSize="1" initialWidth="726" initialHeight="600">
+                 fixedSize="1" initialWidth="256" initialHeight="169">
   <BACKGROUND backgroundColour="ffffff">
-    <ROUNDRECT pos="2 2 252 133" cornerSize="5.5" fill="linear: 208 184, 504 352, 0=a6000000, 1=d26c6c6c"
+    <ROUNDRECT pos="2 2 252 165" cornerSize="5.5" fill="linear: 0 0, 256 136, 0=a6000000, 1=d26c6c6c"
                hasStroke="1" stroke="1, mitered, butt" strokeColour="solid: b3000000"/>
   </BACKGROUND>
   <LABEL name="new label" id="77bd41297d7ab657" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="10 9 235 120" textCol="95ffffff"
-         edTextCol="ff000000" edBkgCol="0" labelText="&#10;Keith McMillen Instruments' QuNeo Demo&#10;&#10;Written By:&#10;Conner Lacy | conner@keithmcmillen.com&#10;[source available @ github.com/connerlacy]&#10;&#10;Audio Sample Support:&#10;Dustin Schultz | dustin@keithmcmillen.com&#10;Matt Hettich | matt@keithmcmillen.com"
+         explicitFocusOrder="0" pos="10 9 235 151" textCol="95ffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="&#10;Keith McMillen Instruments' QuNeo Demo&#10;&#10;Written By:&#10;Conner Lacy | conner@keithmcmillen.com&#10;[source available @ github.com/connerlacy]&#10;&#10;Thanks to:&#10;&#10;Dustin Schultz | dustin@keithmcmillen.com&#10;Matt Hettich | matt@keithmcmillen.com&#10;&#10;for their audio contributions."
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="12.5" bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>

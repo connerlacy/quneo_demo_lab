@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  22 Aug 2013 1:05:33pm
+  Creation date:  24 Aug 2013 4:02:56pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_QUNEOGRAPH_QUNEOGRAPH_E41F6DA5__
-#define __JUCER_HEADER_QUNEOGRAPH_QUNEOGRAPH_E41F6DA5__
+#ifndef __JUCER_HEADER_QUNEOGRAPH_QUNEOGRAPH_E95503F0__
+#define __JUCER_HEADER_QUNEOGRAPH_QUNEOGRAPH_E95503F0__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
@@ -71,7 +71,13 @@ public:
 
     void paint (Graphics& g);
     void resized();
+    void mouseDown (const MouseEvent& e);
 
+    // Binary resources:
+    static const char* quNeo_png;
+    static const int quNeo_pngSize;
+    static const char* keithMcMillen_png;
+    static const int keithMcMillen_pngSize;
 
 
     //==============================================================================
@@ -112,6 +118,8 @@ private:
     PlayButton* playButton;
     Rotary* rotary1;
     RhombusButton* rhombusButton;
+    Image cachedImage_quNeo_png;
+    Image cachedImage_keithMcMillen_png;
 
 
     //==============================================================================
@@ -121,4 +129,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_QUNEOGRAPH_QUNEOGRAPH_E41F6DA5__
+#endif   // __JUCER_HEADER_QUNEOGRAPH_QUNEOGRAPH_E95503F0__

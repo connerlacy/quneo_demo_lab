@@ -1,23 +1,23 @@
 /*
-  ==============================================================================
-
-  This is an automatically generated file created by the Jucer!
-
-  Creation date:  14 Aug 2013 12:50:31pm
-
-  Be careful when adding custom code to these files, as only the code within
-  the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
-  and re-saved.
-
-  Jucer version: 1.12
-
-  ------------------------------------------------------------------------------
-
-  The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-6 by Raw Material Software ltd.
-
-  ==============================================================================
-*/
+ ==============================================================================
+ 
+ This is an automatically generated file created by the Jucer!
+ 
+ Creation date:  14 Aug 2013 12:50:31pm
+ 
+ Be careful when adding custom code to these files, as only the code within
+ the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
+ and re-saved.
+ 
+ Jucer version: 1.12
+ 
+ ------------------------------------------------------------------------------
+ 
+ The Jucer is part of the JUCE library - "Jules' Utility Class Extensions"
+ Copyright 2004-6 by Raw Material Software ltd.
+ 
+ ==============================================================================
+ */
 
 //[Headers] You can add your own extra header files here...
 //[/Headers]
@@ -30,23 +30,23 @@
 
 //==============================================================================
 ButtonGrid::ButtonGrid (AudioEngine* audioEngine_)
-    : audioEngine(audioEngine_),
-      pad12 (0),
-      pad13 (0),
-      pad14 (0),
-      pad15 (0),
-      pad8 (0),
-      pad9 (0),
-      pad10 (0),
-      pad11 (0),
-      pad4 (0),
-      pad5 (0),
-      pad6 (0),
-      pad7 (0),
-      pad0 (0),
-      pad1 (0),
-      pad2 (0),
-      pad3 (0)
+: audioEngine(audioEngine_),
+pad12 (0),
+pad13 (0),
+pad14 (0),
+pad15 (0),
+pad8 (0),
+pad9 (0),
+pad10 (0),
+pad11 (0),
+pad4 (0),
+pad5 (0),
+pad6 (0),
+pad7 (0),
+pad0 (0),
+pad1 (0),
+pad2 (0),
+pad3 (0)
 {
     addAndMakeVisible (pad12 = new Pad());
     addAndMakeVisible (pad13 = new Pad());
@@ -64,13 +64,13 @@ ButtonGrid::ButtonGrid (AudioEngine* audioEngine_)
     addAndMakeVisible (pad1 = new Pad());
     addAndMakeVisible (pad2 = new Pad());
     addAndMakeVisible (pad3 = new Pad());
-
+    
     //[UserPreSize]
     //[/UserPreSize]
-
+    
     setSize (400, 400);
-
-
+    
+    
     //[Constructor] You can add your own custom stuff here..
     pads[0] = pad0;
     pads[1] = pad1;
@@ -88,7 +88,7 @@ ButtonGrid::ButtonGrid (AudioEngine* audioEngine_)
     pads[13] = pad13;
     pads[14] = pad14;
     pads[15] = pad15;
-
+    
     for(int i =0; i < 16; i ++)
     {
         padTime[i] = -1;
@@ -102,7 +102,7 @@ ButtonGrid::~ButtonGrid()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
-
+    
     deleteAndZero (pad12);
     deleteAndZero (pad13);
     deleteAndZero (pad14);
@@ -119,8 +119,8 @@ ButtonGrid::~ButtonGrid()
     deleteAndZero (pad1);
     deleteAndZero (pad2);
     deleteAndZero (pad3);
-
-
+    
+    
     //[Destructor]. You can add your own custom destruction code here..
     //[/Destructor]
 }
@@ -130,9 +130,9 @@ void ButtonGrid::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
-
+    
     g.fillAll (Colour (0xff2b2b2b));
-
+    
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
 }
@@ -170,21 +170,26 @@ void ButtonGrid::actionListenerCallback(const String& message)
 void ButtonGrid::setPadState(int padNum, bool state)
 {
     pads[padNum]->setState(state);
-
+    
     if(state)
     {
         pads[padNum]->setRepeat(false);
-        audioEngine->synth.noteOn(1,padNum + 36,100.00/127.00);
+
+        audioEngine->synth.noteOn(1,(padNum + 36),100.00/127.00);
+        
         padTime[padNum] = -1;
         this->startTimer(padNum,1);
     }
     else
     {
         pads[padNum]->setRepeat(false);
-        audioEngine->synth.noteOff(1,padNum + 36,1);
+        for(int quadrant = 0; quadrant < 4; quadrant++)
+        {
+            audioEngine->synth.noteOff(1,(padNum + 36) + (16 * quadrant),1);
+        }
         this->stopTimer(padNum);
     }
-
+    
 }
 
 void ButtonGrid::setX(int padNum, float xLoc)
@@ -209,20 +214,20 @@ void ButtonGrid::timerCallback(int timerID)
         pads[timerID]->setRepeat(true);
         //audioEngine->synth.noteOn(1,timerID + 36,100.00/127.00);
         //padTime[timerID] = -1;
-
+        
         /*if(repeatTime[timerID] > (1.0f - pads[timerID]->getPressure()/127.0f)*700 + 40)
-        {
-            audioEngine->synth.noteOn(1,timerID + 36,100.00/127.00);
-            repeatTime[timerID] = 0;
-        }
-        else
-        {
-            repeatTime[timerID]++;
-        }*/
+         {
+         audioEngine->synth.noteOn(1,timerID + 36,100.00/127.00);
+         repeatTime[timerID] = 0;
+         }
+         else
+         {
+         repeatTime[timerID]++;
+         }*/
     }
     else
     {
-       padTime[timerID]++;
+        padTime[timerID]++;
     }
 }
 
@@ -236,67 +241,67 @@ Pad* ButtonGrid::getPad(int padNum)
 //==============================================================================
 #if 0
 /*  -- Jucer information section --
-
-    This is where the Jucer puts all of its metadata, so don't change anything in here!
-
-BEGIN_JUCER_METADATA
-
-<JUCER_COMPONENT documentType="Component" className="ButtonGrid" componentName=""
-                 parentClasses="public Component, public ActionListener, public MultiTimer"
-                 constructorParams="AudioEngine* audioEngine_" variableInitialisers="audioEngine(audioEngine_)"
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
-                 fixedSize="0" initialWidth="400" initialHeight="400">
-  <BACKGROUND backgroundColour="ff2b2b2b"/>
-  <JUCERCOMP name="" id="d1c7c81270ef70a" memberName="pad12" virtualName=""
-             explicitFocusOrder="0" pos="5 5 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="5e5055132b8027d0" memberName="pad13" virtualName=""
-             explicitFocusOrder="0" pos="113 5 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="b0a2b457384ab900" memberName="pad14" virtualName=""
-             explicitFocusOrder="0" pos="221 5 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="9e534c4313b677d3" memberName="pad15" virtualName=""
-             explicitFocusOrder="0" pos="329 5 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="ee7b18fa36c49412" memberName="pad8" virtualName=""
-             explicitFocusOrder="0" pos="5 113 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="efaab648d5e363ed" memberName="pad9" virtualName=""
-             explicitFocusOrder="0" pos="113 113 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="b24d7545bf305301" memberName="pad10" virtualName=""
-             explicitFocusOrder="0" pos="221 113 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="2b5ff7321df9265b" memberName="pad11" virtualName=""
-             explicitFocusOrder="0" pos="329 113 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="bdf108d449eb1f0f" memberName="pad4" virtualName=""
-             explicitFocusOrder="0" pos="5 221 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="e50c1b57911b1bff" memberName="pad5" virtualName=""
-             explicitFocusOrder="0" pos="113 221 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="3bf71ee45def2e53" memberName="pad6" virtualName=""
-             explicitFocusOrder="0" pos="221 221 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="9d3ca51b5ad400b4" memberName="pad7" virtualName=""
-             explicitFocusOrder="0" pos="329 221 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="e7bfaa1b253e2ffb" memberName="pad0" virtualName=""
-             explicitFocusOrder="0" pos="5 329 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="d504e109eb9addb7" memberName="pad1" virtualName=""
-             explicitFocusOrder="0" pos="113 329 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="ada91090e0d012aa" memberName="pad2" virtualName=""
-             explicitFocusOrder="0" pos="221 329 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="ee967f5c9976f14c" memberName="pad3" virtualName=""
-             explicitFocusOrder="0" pos="329 329 100 100" sourceFile="Pad.cpp"
-             constructorParams=""/>
-</JUCER_COMPONENT>
-
-END_JUCER_METADATA
-*/
+ 
+ This is where the Jucer puts all of its metadata, so don't change anything in here!
+ 
+ BEGIN_JUCER_METADATA
+ 
+ <JUCER_COMPONENT documentType="Component" className="ButtonGrid" componentName=""
+ parentClasses="public Component, public ActionListener, public MultiTimer"
+ constructorParams="AudioEngine* audioEngine_" variableInitialisers="audioEngine(audioEngine_)"
+ snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
+ fixedSize="0" initialWidth="400" initialHeight="400">
+ <BACKGROUND backgroundColour="ff2b2b2b"/>
+ <JUCERCOMP name="" id="d1c7c81270ef70a" memberName="pad12" virtualName=""
+ explicitFocusOrder="0" pos="5 5 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="5e5055132b8027d0" memberName="pad13" virtualName=""
+ explicitFocusOrder="0" pos="113 5 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="b0a2b457384ab900" memberName="pad14" virtualName=""
+ explicitFocusOrder="0" pos="221 5 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="9e534c4313b677d3" memberName="pad15" virtualName=""
+ explicitFocusOrder="0" pos="329 5 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="ee7b18fa36c49412" memberName="pad8" virtualName=""
+ explicitFocusOrder="0" pos="5 113 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="efaab648d5e363ed" memberName="pad9" virtualName=""
+ explicitFocusOrder="0" pos="113 113 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="b24d7545bf305301" memberName="pad10" virtualName=""
+ explicitFocusOrder="0" pos="221 113 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="2b5ff7321df9265b" memberName="pad11" virtualName=""
+ explicitFocusOrder="0" pos="329 113 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="bdf108d449eb1f0f" memberName="pad4" virtualName=""
+ explicitFocusOrder="0" pos="5 221 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="e50c1b57911b1bff" memberName="pad5" virtualName=""
+ explicitFocusOrder="0" pos="113 221 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="3bf71ee45def2e53" memberName="pad6" virtualName=""
+ explicitFocusOrder="0" pos="221 221 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="9d3ca51b5ad400b4" memberName="pad7" virtualName=""
+ explicitFocusOrder="0" pos="329 221 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="e7bfaa1b253e2ffb" memberName="pad0" virtualName=""
+ explicitFocusOrder="0" pos="5 329 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="d504e109eb9addb7" memberName="pad1" virtualName=""
+ explicitFocusOrder="0" pos="113 329 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="ada91090e0d012aa" memberName="pad2" virtualName=""
+ explicitFocusOrder="0" pos="221 329 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ <JUCERCOMP name="" id="ee967f5c9976f14c" memberName="pad3" virtualName=""
+ explicitFocusOrder="0" pos="329 329 100 100" sourceFile="Pad.cpp"
+ constructorParams=""/>
+ </JUCER_COMPONENT>
+ 
+ END_JUCER_METADATA
+ */
 #endif

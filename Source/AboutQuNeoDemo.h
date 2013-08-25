@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  24 Aug 2013 5:37:07pm
+  Creation date:  24 Aug 2013 8:58:35pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_ABOUTQUNEODEMO_ABOUTQUNEODEMO_48F3C747__
-#define __JUCER_HEADER_ABOUTQUNEODEMO_ABOUTQUNEODEMO_48F3C747__
+#ifndef __JUCER_HEADER_ABOUTQUNEODEMO_ABOUTQUNEODEMO_9D253283__
+#define __JUCER_HEADER_ABOUTQUNEODEMO_ABOUTQUNEODEMO_9D253283__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
@@ -45,6 +45,12 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    bool animateOn;
+    int32 color;
+    uint8 rd;
+    uint8 gn;
+    uint8 bl;
+    void animate();
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -57,6 +63,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+
     //[/UserVariables]
 
     //==============================================================================
@@ -70,4 +77,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_ABOUTQUNEODEMO_ABOUTQUNEODEMO_48F3C747__
+#endif   // __JUCER_HEADER_ABOUTQUNEODEMO_ABOUTQUNEODEMO_9D253283__

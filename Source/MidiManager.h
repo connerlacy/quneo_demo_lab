@@ -13,6 +13,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AudioEngine.h"
 #include "Sampler.h"
+#include "PluginMessage.h"
 
 class MidiManager : public MidiInputCallback,
                     public ActionBroadcaster,
@@ -20,7 +21,7 @@ class MidiManager : public MidiInputCallback,
 {
 public:
 	
-    MidiManager(AudioEngine* audioEngine_);
+    MidiManager(AudioEngine* audioEngine_, PluginMessage* mw);
     ~MidiManager();
 	
 	/*int     getCurrentMidiNote();
@@ -39,6 +40,7 @@ public:
 
     AudioEngine* audioEngine;
     Sampler* sampler;
+    PluginMessage* mw;
 	
 private:
 	

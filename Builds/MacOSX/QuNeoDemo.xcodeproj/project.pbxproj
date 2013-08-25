@@ -48,9 +48,12 @@
 		D02CBBFF17B3155100585E42 /* StopButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D02CBBDE17B3155100585E42 /* StopButton.cpp */; };
 		D02CBC0017B3155100585E42 /* UpButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D02CBBE017B3155100585E42 /* UpButton.cpp */; };
 		D02CBC0117B3155100585E42 /* VerticalSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D02CBBE217B3155100585E42 /* VerticalSlider.cpp */; };
+		D02E556C17C9635300E3DBCA /* AboutQuNeoDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D02E556A17C9635300E3DBCA /* AboutQuNeoDemo.cpp */; };
+		D02E558917C976CC00E3DBCA /* MouseMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D02E558817C976CB00E3DBCA /* MouseMask.cpp */; };
 		D037C28817C2DD89001972BE /* Sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D037C28617C2DD89001972BE /* Sampler.cpp */; };
 		D05A3C3E17BAD7020059BBC7 /* Oscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D05A3C3C17BAD7020059BBC7 /* Oscillator.cpp */; };
 		D064892517B98A26007C546A /* TimeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D064892317B98A26007C546A /* TimeManager.cpp */; };
+		D08034E117C8567C00E1E67D /* PluginMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D08034DF17C8567C00E1E67D /* PluginMessage.cpp */; };
 		D09F791517C5640D00C95780 /* audio in Resources */ = {isa = PBXBuildFile; fileRef = D09F791417C5640D00C95780 /* audio */; };
 		D0B5F5D317ADCEC000141DD0 /* AudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5F5D117ADCEC000141DD0 /* AudioEngine.cpp */; };
 		D0BD440917BC3248000E8766 /* QuNeoDemo.icns in Resources */ = {isa = PBXBuildFile; fileRef = D0BD440817BC3248000E8766 /* QuNeoDemo.icns */; };
@@ -748,6 +751,10 @@
 		D02CBBE117B3155100585E42 /* UpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpButton.h; path = ../../Source/UpButton.h; sourceTree = "<group>"; };
 		D02CBBE217B3155100585E42 /* VerticalSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VerticalSlider.cpp; path = ../../Source/VerticalSlider.cpp; sourceTree = "<group>"; };
 		D02CBBE317B3155100585E42 /* VerticalSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerticalSlider.h; path = ../../Source/VerticalSlider.h; sourceTree = "<group>"; };
+		D02E556A17C9635300E3DBCA /* AboutQuNeoDemo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AboutQuNeoDemo.cpp; path = ../../Source/AboutQuNeoDemo.cpp; sourceTree = "<group>"; };
+		D02E556B17C9635300E3DBCA /* AboutQuNeoDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutQuNeoDemo.h; path = ../../Source/AboutQuNeoDemo.h; sourceTree = "<group>"; };
+		D02E558817C976CB00E3DBCA /* MouseMask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MouseMask.cpp; path = ../../Source/MouseMask.cpp; sourceTree = "<group>"; };
+		D02E558A17C976D600E3DBCA /* MouseMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MouseMask.h; path = ../../Source/MouseMask.h; sourceTree = "<group>"; };
 		D037C28617C2DD89001972BE /* Sampler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sampler.cpp; path = ../../Source/Sampler.cpp; sourceTree = "<group>"; };
 		D037C28717C2DD89001972BE /* Sampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sampler.h; path = ../../Source/Sampler.h; sourceTree = "<group>"; };
 		D03F90A77A7EE8491804D172 /* juce_ResizableCornerComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ResizableCornerComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_ResizableCornerComponent.cpp; sourceTree = SOURCE_ROOT; };
@@ -756,6 +763,8 @@
 		D05A3C3D17BAD7020059BBC7 /* Oscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Oscillator.h; path = ../../Source/Oscillator.h; sourceTree = "<group>"; };
 		D064892317B98A26007C546A /* TimeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeManager.cpp; path = ../../Source/TimeManager.cpp; sourceTree = "<group>"; };
 		D064892417B98A26007C546A /* TimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeManager.h; path = ../../Source/TimeManager.h; sourceTree = "<group>"; };
+		D08034DF17C8567C00E1E67D /* PluginMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PluginMessage.cpp; path = ../../Source/PluginMessage.cpp; sourceTree = "<group>"; };
+		D08034E017C8567C00E1E67D /* PluginMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PluginMessage.h; path = ../../Source/PluginMessage.h; sourceTree = "<group>"; };
 		D09F791417C5640D00C95780 /* audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = audio; sourceTree = "<group>"; };
 		D0B5F5D117ADCEC000141DD0 /* AudioEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioEngine.cpp; path = ../../Source/AudioEngine.cpp; sourceTree = "<group>"; };
 		D0B5F5D217ADCEC000141DD0 /* AudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioEngine.h; path = ../../Source/AudioEngine.h; sourceTree = "<group>"; };
@@ -1365,8 +1374,6 @@
 		3F47EECD9F24BB00937F86D5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D037C28617C2DD89001972BE /* Sampler.cpp */,
-				D037C28717C2DD89001972BE /* Sampler.h */,
 				FE58970200C69B6800EC4E4A /* QuNeoDemo */,
 				565A22C4BF83231A8DAD97C9 /* Juce Modules */,
 				7CDE3D1573884847A3A32F11 /* Juce Library Code */,
@@ -1546,12 +1553,20 @@
 				CF94228E4B28473B2F898C76 /* Main.cpp */,
 				29E571114740B8D9458BE15A /* MainWindow.h */,
 				3A6B2A18928FD00F7C4DF7F0 /* MainWindow.cpp */,
+				D02E556B17C9635300E3DBCA /* AboutQuNeoDemo.h */,
+				D02E556A17C9635300E3DBCA /* AboutQuNeoDemo.cpp */,
+				D08034E017C8567C00E1E67D /* PluginMessage.h */,
+				D08034DF17C8567C00E1E67D /* PluginMessage.cpp */,
+				D02E558A17C976D600E3DBCA /* MouseMask.h */,
+				D02E558817C976CB00E3DBCA /* MouseMask.cpp */,
 				D0F678B317B0557D0083FE34 /* MidiManager.h */,
 				D0F678B217B0557D0083FE34 /* MidiManager.cpp */,
 				D064892417B98A26007C546A /* TimeManager.h */,
 				D064892317B98A26007C546A /* TimeManager.cpp */,
 				D0B5F5D217ADCEC000141DD0 /* AudioEngine.h */,
 				D0B5F5D117ADCEC000141DD0 /* AudioEngine.cpp */,
+				D037C28717C2DD89001972BE /* Sampler.h */,
+				D037C28617C2DD89001972BE /* Sampler.cpp */,
 				D05A3C3D17BAD7020059BBC7 /* Oscillator.h */,
 				D05A3C3C17BAD7020059BBC7 /* Oscillator.cpp */,
 			);
@@ -2764,6 +2779,9 @@
 				D064892517B98A26007C546A /* TimeManager.cpp in Sources */,
 				D05A3C3E17BAD7020059BBC7 /* Oscillator.cpp in Sources */,
 				D037C28817C2DD89001972BE /* Sampler.cpp in Sources */,
+				D08034E117C8567C00E1E67D /* PluginMessage.cpp in Sources */,
+				D02E556C17C9635300E3DBCA /* AboutQuNeoDemo.cpp in Sources */,
+				D02E558917C976CC00E3DBCA /* MouseMask.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

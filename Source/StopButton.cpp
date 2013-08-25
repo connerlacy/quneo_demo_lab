@@ -134,6 +134,10 @@ void StopButton::resized()
 void StopButton::setState(bool st)
 {
     state = st;
+    if(state)
+    {
+        audioEngine->synth.noteOn(1,1,100.00/127.00);
+    }
     this->repaint();
 }
 

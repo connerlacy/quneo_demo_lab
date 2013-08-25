@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  23 Aug 2013 8:47:26pm
+  Creation date:  24 Aug 2013 4:25:48pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_PLUGINMESSAGE_PLUGINMESSAGE_A0EA4B3A__
-#define __JUCER_HEADER_PLUGINMESSAGE_PLUGINMESSAGE_A0EA4B3A__
+#ifndef __JUCER_HEADER_PLUGINMESSAGE_PLUGINMESSAGE_E832A04F__
+#define __JUCER_HEADER_PLUGINMESSAGE_PLUGINMESSAGE_E832A04F__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
@@ -61,7 +61,6 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    Label* label;
 
 
     //==============================================================================
@@ -71,4 +70,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_PLUGINMESSAGE_PLUGINMESSAGE_A0EA4B3A__
+#endif   // __JUCER_HEADER_PLUGINMESSAGE_PLUGINMESSAGE_E832A04F__

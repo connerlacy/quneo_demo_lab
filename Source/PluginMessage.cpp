@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  23 Aug 2013 8:47:26pm
+  Creation date:  24 Aug 2013 4:25:48pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -28,30 +28,18 @@
 //[MiscUserDefs] You can add your own user definitions and misc code here...
 void PluginMessage::setLabelText(String st)
 {
-    label->setText(st, 0);
+    //label->setText(st, 0);
 }
 //[/MiscUserDefs]
 
 //==============================================================================
 PluginMessage::PluginMessage ()
-    : label (0)
 {
-    addAndMakeVisible (label = new Label (L"new label",
-                                          L"Plug in your QuNeo and explore"));
-    label->setFont (Font (L"Opal", 27.3000f, Font::plain));
-    label->setJustificationType (Justification::centred);
-    label->setEditable (false, false, false);
-    label->setColour (Label::backgroundColourId, Colour (0x0));
-    label->setColour (Label::textColourId, Colour (0x680d0d0d));
-    label->setColour (Label::outlineColourId, Colour (0x808080));
-    label->setColour (TextEditor::textColourId, Colours::black);
-    label->setColour (TextEditor::backgroundColourId, Colour (0x0));
-
 
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (726, 500);
+    setSize (726, 549);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -63,7 +51,6 @@ PluginMessage::~PluginMessage()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    deleteAndZero (label);
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -76,12 +63,20 @@ void PluginMessage::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.setGradientFill (ColourGradient (Colours::white,
-                                       363.0f, 250.0f,
-                                       Colour (0xffffff),
-                                       136.0f, 232.0f,
+    g.fillAll (Colour (0xa2000000));
+
+    g.setColour (Colour (0xaf000000));
+    g.fillRoundedRectangle (0.0f, 0.0f, 726.0f, 549.0f, 20.5000f);
+
+    g.setGradientFill (ColourGradient (Colour (0xffcac5c5),
+                                       368.0f, 296.0f,
+                                       Colour (0xff151515),
+                                       16.0f, 16.0f,
                                        true));
-    g.fillRect (-1, 3, 726, 493);
+    g.setFont (Font (31.9000f, Font::plain));
+    g.drawText (L"Plug in your QuNeo to explore!",
+                0, 245, 726, 30,
+                Justification::centred, true);
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -89,7 +84,6 @@ void PluginMessage::paint (Graphics& g)
 
 void PluginMessage::resized()
 {
-    label->setBounds (0, 216, 726, 40);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -111,16 +105,13 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="PluginMessage" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330000013"
-                 fixedSize="1" initialWidth="726" initialHeight="500">
-  <BACKGROUND backgroundColour="ffffff">
-    <RECT pos="-1 3 726 493" fill=" radial: 363 250, 136 232, 0=ffffffff, 1=ffffff"
-          hasStroke="0"/>
+                 fixedSize="1" initialWidth="726" initialHeight="549">
+  <BACKGROUND backgroundColour="a2000000">
+    <ROUNDRECT pos="0 0 726 549" cornerSize="20.5" fill="solid: af000000" hasStroke="0"/>
+    <TEXT pos="0 245 726 30" fill=" radial: 368 296, 16 16, 0=ffcac5c5, 1=ff151515"
+          hasStroke="0" text="Plug in your QuNeo to explore!" fontname="Default font"
+          fontsize="31.9" bold="0" italic="0" justification="36"/>
   </BACKGROUND>
-  <LABEL name="new label" id="ff5a898eea21848" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="0 216 726 40" bkgCol="0" textCol="680d0d0d"
-         outlineCol="808080" edTextCol="ff000000" edBkgCol="0" labelText="Plug in your QuNeo to explore"
-         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Opal" fontsize="27.3" bold="0" italic="0" justification="36"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

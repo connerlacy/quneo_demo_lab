@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  24 Aug 2013 4:18:11pm
+  Creation date:  24 Aug 2013 7:27:46pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -19,8 +19,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCER_HEADER_MOUSEMASK_MOUSEMASK_AB4821BD__
-#define __JUCER_HEADER_MOUSEMASK_MOUSEMASK_AB4821BD__
+#ifndef __JUCER_HEADER_MOUSEMASK_MOUSEMASK_358E5901__
+#define __JUCER_HEADER_MOUSEMASK_MOUSEMASK_358E5901__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
@@ -37,20 +37,31 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class MouseMask  : public Component
+class MouseMask  : public Component,
+                   public Timer
 {
 public:
     //==============================================================================
-    MouseMask (AboutQuNeoDemo *dw);
+    MouseMask (AboutQuNeoDemo* dw_);
     ~MouseMask();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    
+    Random rd;
+    Random gn;
+    Random bl;
+    
+    uint8 rand_rd;
+    uint8 rand_gn;
+    uint8 rand_bl;
     //[/UserMethods]
 
     void paint (Graphics& g);
     void resized();
+    void mouseMove (const MouseEvent& e);
     void mouseDown (const MouseEvent& e);
+    void timerCallback();
 
 
 
@@ -60,6 +71,7 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     AboutQuNeoDemo* dw;
+    bool visible;
     //[/UserVariables]
 
     //==============================================================================
@@ -72,4 +84,4 @@ private:
 };
 
 
-#endif   // __JUCER_HEADER_MOUSEMASK_MOUSEMASK_AB4821BD__
+#endif   // __JUCER_HEADER_MOUSEMASK_MOUSEMASK_358E5901__
