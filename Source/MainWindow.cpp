@@ -13,7 +13,11 @@
 //==============================================================================
 MainAppWindow::MainAppWindow()
     : DocumentWindow (JUCEApplication::getInstance()->getApplicationName(),
-                      Colour(0xFF000000),
+#ifdef JUCE_MAC
+                      Colour(0x005b5b5b),
+#else
+                      Colour(0xFF5b5b5b),      
+#endif
                       DocumentWindow::allButtons)
 {   
     //Init fampler and filter(s)
@@ -51,7 +55,7 @@ MainAppWindow::MainAppWindow()
     abq->setVisible(false);
     
     this->setUsingNativeTitleBar(true);
-    centreWithSize (726, 568);
+    centreWithSize (726, 549);
     setVisible (true);
 
     //Create Midi manager
@@ -71,9 +75,27 @@ MainAppWindow::MainAppWindow()
 
 MainAppWindow::~MainAppWindow()
 {
+    
+    
     audioSourcePlayer.setSource (0);
+    filterSourcePlayer.setSource(0);
+    looperSourcePlayer.setSource(0);
+    
     deviceManager.removeAudioCallback (&audioSourcePlayer);
 	deviceManager.removeAudioCallback (&filterSourcePlayer);
+    deviceManager.removeAudioCallback (&looperSourcePlayer);
+    
+    //deleteAndZero(audioEngine);
+    
+    
+    deleteAndZero(samplerFilter);
+    deleteAndZero(midiManager);
+    deleteAndZero(quNeoGraph);
+    deleteAndZero(pluginMessage);
+    deleteAndZero(abq);
+    deleteAndZero(mouseMask);
+
+
 }
 
 void MainAppWindow::closeButtonPressed()

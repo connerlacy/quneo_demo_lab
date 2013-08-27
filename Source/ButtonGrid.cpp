@@ -209,7 +209,7 @@ void ButtonGrid::setPressure(int padNum, float pressure)
 
 void ButtonGrid::timerCallback(int timerID)
 {
-    if(padTime[timerID] > 700)
+    if(padTime[timerID] > 350)
     {
         pads[timerID]->setRepeat(true);
         //audioEngine->synth.noteOn(1,timerID + 36,100.00/127.00);

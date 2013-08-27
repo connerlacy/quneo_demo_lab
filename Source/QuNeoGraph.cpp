@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  24 Aug 2013 4:02:56pm
+  Creation date:  27 Aug 2013 11:14:38am
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -152,11 +152,7 @@ void QuNeoGraph::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.setGradientFill (ColourGradient (Colour (0xff5b5b5b),
-                                       376.0f, (float) (-24),
-                                       Colours::black,
-                                       352.0f, 392.0f,
-                                       false));
+    g.setColour (Colour (0xff5b5b5b));
     g.fillRect (-2, -17, 730, 113);
 
     g.setColour (Colour (0xff2b2b2b));
@@ -739,8 +735,7 @@ BEGIN_JUCER_METADATA
     <METHOD name="mouseDown (const MouseEvent&amp; e)"/>
   </METHODS>
   <BACKGROUND backgroundColour="0">
-    <RECT pos="-2 -17 730 113" fill="linear: 376 -24, 352 392, 0=ff5b5b5b, 1=ff000000"
-          hasStroke="0"/>
+    <RECT pos="-2 -17 730 113" fill="solid: ff5b5b5b" hasStroke="0"/>
     <ROUNDRECT pos="1 0 724 548" cornerSize="20.5" fill="solid: ff2b2b2b" hasStroke="1"
                stroke="2, mitered, butt" strokeColour="solid: ff404040"/>
     <IMAGE pos="546 465 92 28" resource="quNeo_png" opacity="1" mode="2"/>

@@ -17,9 +17,6 @@ AudioEngine::AudioEngine()
     File currentSample;
     WavAudioFormat wavFormat;
     
-
-
-	
 #ifdef JUCE_MAC
 	//Sample file path format
     String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
@@ -30,7 +27,7 @@ AudioEngine::AudioEngine()
     DirectoryIterator iter2(File(appPath + "/Contents/Resources/audio/pads/2"), true, "*.wav");
     DirectoryIterator iter3(File(appPath + "/Contents/Resources/audio/pads/3"), true, "*.wav");
 #else
-	    //Sample file path format
+    //Sample file path format
 	String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
 	appPath = appPath.dropLastCharacters(14);
 	//DBG(appPath + "\audio\pads\0");
@@ -41,7 +38,6 @@ AudioEngine::AudioEngine()
     DirectoryIterator iter3(File(appPath + "/audio/pads/3"), true, "*.wav");
 #endif
     
-    
     uint32 i = 36; //Loweset Pad Note on Preset 1
     
     //Loop through samples in resources
@@ -49,7 +45,7 @@ AudioEngine::AudioEngine()
     {
         currentSample = iter0.getFile();
 
-		DBG(currentSample.getFullPathName());
+		//DBG(currentSample.getFullPathName());
         
         ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new FileInputStream (currentSample),true));
         
@@ -146,8 +142,6 @@ AudioEngine::AudioEngine()
         i++;
     }
     
-    std::cout << "i -------------- " << i << "\n";
-    
     //---------------------- Button Sound
     //DirectoryIterator iterButtons(File(appPath + "/Contents/Resources/audio/buttons"), true, "*.wav");
 #ifdef JUCE_MAC
@@ -189,7 +183,8 @@ currentSample = File(appPath + "/audio/buttons/cheer.wav");
 
 AudioEngine::~AudioEngine()
 {
-    
+    deleteAndZero(filter[0]);
+    deleteAndZero(filter[1]);
 }
 
 void AudioEngine::setSamplerFilter(IIRFilterAudioSource* fS)

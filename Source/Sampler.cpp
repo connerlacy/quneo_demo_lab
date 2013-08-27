@@ -11,8 +11,8 @@
 Sampler::Sampler()
 {
     String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
-    
     File currentSample;
+    
 #ifdef JUCE_MAC
     DirectoryIterator iter(File(appPath + "/Contents/Resources/audio/longSlider"), true, "*.wav");
 #else
@@ -21,8 +21,6 @@ Sampler::Sampler()
 #endif
     
     WavAudioFormat wavFormat;
-    
-    
     
     while (iter.next()) 
     {
@@ -88,7 +86,7 @@ void Sampler::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
     MidiBuffer looperMidi;
     
     static bool once = false;
-    static int64 sampleCount = 0;
+    static int sampleCount = 0;
     
     //Start loop for first time
     if(!once)
@@ -98,7 +96,7 @@ void Sampler::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
     }
     
     //Count samples
-    for(int64 i = 0; i < bufferToFill.numSamples; i++)
+    for(int i = 0; i < bufferToFill.numSamples; i++)
     {
         sampleCount++;
         

@@ -19,9 +19,15 @@ MidiManager::MidiManager(AudioEngine* audioEngine_, PluginMessage* mw_)
 
 MidiManager::~MidiManager()
 {
-	midiInput->stop();
+	/*midiInput->stop();
+    midiOutput->clearAllPendingMessages();
+    midiOutput->stopBackgroundThread();
 	deleteAndZero(midiInput);
 	deleteAndZero(midiOutput);
+    delete midiOutput;
+    //~midiOutput();*/
+    
+    
 }
 
 void MidiManager::timerCallback()
