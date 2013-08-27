@@ -13,8 +13,12 @@ Sampler::Sampler()
     String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
     
     File currentSample;
-    
+#ifdef JUCE_MAC
     DirectoryIterator iter(File(appPath + "/Contents/Resources/audio/longSlider"), true, "*.wav");
+#else
+	appPath = appPath.dropLastCharacters(14);
+	DirectoryIterator iter(File(appPath + "/audio/longSlider"), true, "*.wav");
+#endif
     
     WavAudioFormat wavFormat;
     

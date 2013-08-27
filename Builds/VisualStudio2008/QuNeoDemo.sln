@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{B65ED120-1E74-9875-72CB-2E91C26D9494}") = "QuNeoDemo", "QuNeoDemo.vcproj", "{81D0A977-BD97-6124-1307-C16C635DB06B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81D0A977-BD97-6124-1307-C16C635DB06B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{81D0A977-BD97-6124-1307-C16C635DB06B}.Debug|Win32.Build.0 = Debug|Win32
+		{81D0A977-BD97-6124-1307-C16C635DB06B}.Release|Win32.ActiveCfg = Release|Win32
+		{81D0A977-BD97-6124-1307-C16C635DB06B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

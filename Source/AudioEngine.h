@@ -12,7 +12,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Oscillator.h"
 #include "Pad.h"
-
+#include <iostream>
 
 //#include "Oscillator.cpp"
 

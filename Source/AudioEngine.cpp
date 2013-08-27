@@ -17,14 +17,29 @@ AudioEngine::AudioEngine()
     File currentSample;
     WavAudioFormat wavFormat;
     
-    //Sample file path format
+
+
+	
+#ifdef JUCE_MAC
+	//Sample file path format
     String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
-    
+
     //Iterator for each pad quadrant
     DirectoryIterator iter0(File(appPath + "/Contents/Resources/audio/pads/0"), true, "*.wav");
     DirectoryIterator iter1(File(appPath + "/Contents/Resources/audio/pads/1"), true, "*.wav");
     DirectoryIterator iter2(File(appPath + "/Contents/Resources/audio/pads/2"), true, "*.wav");
     DirectoryIterator iter3(File(appPath + "/Contents/Resources/audio/pads/3"), true, "*.wav");
+#else
+	    //Sample file path format
+	String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
+	appPath = appPath.dropLastCharacters(14);
+	//DBG(appPath + "\audio\pads\0");
+
+    DirectoryIterator iter0(File(appPath + "/audio/pads/0"), true, "*.wav");
+    DirectoryIterator iter1(File(appPath + "/audio/pads/1"), true, "*.wav");
+    DirectoryIterator iter2(File(appPath + "/audio/pads/2"), true, "*.wav");
+    DirectoryIterator iter3(File(appPath + "/audio/pads/3"), true, "*.wav");
+#endif
     
     
     uint32 i = 36; //Loweset Pad Note on Preset 1
@@ -33,6 +48,8 @@ AudioEngine::AudioEngine()
     while (iter0.next()) 
     {
         currentSample = iter0.getFile();
+
+		DBG(currentSample.getFullPathName());
         
         ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new FileInputStream (currentSample),true));
         
@@ -133,8 +150,11 @@ AudioEngine::AudioEngine()
     
     //---------------------- Button Sound
     //DirectoryIterator iterButtons(File(appPath + "/Contents/Resources/audio/buttons"), true, "*.wav");
-    
-    currentSample = File(appPath + "/Contents/Resources/audio/buttons/cheer.wav");
+#ifdef JUCE_MAC
+currentSample = File(appPath + "/Contents/Resources/audio/buttons/cheer.wav");
+#else
+currentSample = File(appPath + "/audio/buttons/cheer.wav");
+#endif
     
     ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new FileInputStream (currentSample),true));
     

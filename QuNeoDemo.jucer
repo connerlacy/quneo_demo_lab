@@ -12,12 +12,78 @@
                        osxSDK="default" osxCompatibility="default" osxArchitecture="default"/>
       </CONFIGURATIONS>
     </XCODE_MAC>
+    <VS2008 targetFolder="Builds/VisualStudio2008" libraryType="1" juceFolder="..\JUCE-2_0_release\modules">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" isDebug="1"
+                       optimisation="1" targetName="QuNeoDemo"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" isDebug="0"
+                       optimisation="2" targetName="QuNeoDemo"/>
+      </CONFIGURATIONS>
+    </VS2008>
   </EXPORTFORMATS>
   <MAINGROUP id="h0MzBs" name="QuNeoDemo">
     <GROUP id="{1F6B79EA-4897-2968-81D9-12DD714EC90D}" name="Source">
+      <FILE id="rUCRGF" name="AboutQuNeoDemo.cpp" compile="1" resource="0"
+            file="Source/AboutQuNeoDemo.cpp"/>
+      <FILE id="FF60YM" name="AboutQuNeoDemo.h" compile="0" resource="0"
+            file="Source/AboutQuNeoDemo.h"/>
+      <FILE id="hX6nVs" name="AudioEngine.cpp" compile="1" resource="0" file="Source/AudioEngine.cpp"/>
+      <FILE id="GtTxeG" name="AudioEngine.h" compile="0" resource="0" file="Source/AudioEngine.h"/>
+      <FILE id="ZmvAs7" name="ButtonGrid.cpp" compile="1" resource="0" file="Source/ButtonGrid.cpp"/>
+      <FILE id="P9R02S" name="ButtonGrid.h" compile="0" resource="0" file="Source/ButtonGrid.h"/>
+      <FILE id="NYtMZe" name="DownButton.cpp" compile="1" resource="0" file="Source/DownButton.cpp"/>
+      <FILE id="PEqk5E" name="DownButton.h" compile="0" resource="0" file="Source/DownButton.h"/>
+      <FILE id="XEptQA" name="HorizontalSlider.cpp" compile="1" resource="0"
+            file="Source/HorizontalSlider.cpp"/>
+      <FILE id="oq45FU" name="HorizontalSlider.h" compile="0" resource="0"
+            file="Source/HorizontalSlider.h"/>
+      <FILE id="KQ04hE" name="LeftButton.cpp" compile="1" resource="0" file="Source/LeftButton.cpp"/>
+      <FILE id="LySfC2" name="LeftButton.h" compile="0" resource="0" file="Source/LeftButton.h"/>
+      <FILE id="Mzjf45" name="LongSlider.cpp" compile="1" resource="0" file="Source/LongSlider.cpp"/>
+      <FILE id="F8FaC5" name="LongSlider.h" compile="0" resource="0" file="Source/LongSlider.h"/>
       <FILE id="hX6XIQ" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
       <FILE id="g3C1Vo" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
       <FILE id="pJGRU6" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="dk724f" name="MidiManager.cpp" compile="1" resource="0" file="Source/MidiManager.cpp"/>
+      <FILE id="lhleO6" name="MidiManager.h" compile="0" resource="0" file="Source/MidiManager.h"/>
+      <FILE id="iH0qJV" name="ModeButton.cpp" compile="1" resource="0" file="Source/ModeButton.cpp"/>
+      <FILE id="EBVnGT" name="ModeButton.h" compile="0" resource="0" file="Source/ModeButton.h"/>
+      <FILE id="esYaaT" name="MouseMask.cpp" compile="1" resource="0" file="Source/MouseMask.cpp"/>
+      <FILE id="BVYLqc" name="MouseMask.h" compile="0" resource="0" file="Source/MouseMask.h"/>
+      <FILE id="KBKgA5" name="Oscillator.cpp" compile="1" resource="0" file="Source/Oscillator.cpp"/>
+      <FILE id="FBkRiU" name="Oscillator.h" compile="0" resource="0" file="Source/Oscillator.h"/>
+      <FILE id="DgYIqj" name="Pad.cpp" compile="1" resource="0" file="Source/Pad.cpp"/>
+      <FILE id="qMTcwp" name="Pad.h" compile="0" resource="0" file="Source/Pad.h"/>
+      <FILE id="m81JCg" name="PlayButton.cpp" compile="1" resource="0" file="Source/PlayButton.cpp"/>
+      <FILE id="QFjeBo" name="PlayButton.h" compile="0" resource="0" file="Source/PlayButton.h"/>
+      <FILE id="LMaUnD" name="PluginMessage.cpp" compile="1" resource="0"
+            file="Source/PluginMessage.cpp"/>
+      <FILE id="SLrAFe" name="PluginMessage.h" compile="0" resource="0" file="Source/PluginMessage.h"/>
+      <FILE id="DvG0Y3" name="QuNeoDemo.icns" compile="0" resource="1" file="Source/QuNeoDemo.icns"/>
+      <FILE id="l04gyu" name="QuNeoGraph.cpp" compile="1" resource="0" file="Source/QuNeoGraph.cpp"/>
+      <FILE id="hMcGK8" name="QuNeoGraph.h" compile="0" resource="0" file="Source/QuNeoGraph.h"/>
+      <FILE id="sxsfcU" name="RecordButton.cpp" compile="1" resource="0"
+            file="Source/RecordButton.cpp"/>
+      <FILE id="jRDjhU" name="RecordButton.h" compile="0" resource="0" file="Source/RecordButton.h"/>
+      <FILE id="C6DEP5" name="RhombusButton.cpp" compile="1" resource="0"
+            file="Source/RhombusButton.cpp"/>
+      <FILE id="SEzgxU" name="RhombusButton.h" compile="0" resource="0" file="Source/RhombusButton.h"/>
+      <FILE id="hYUnu3" name="RightButton.cpp" compile="1" resource="0" file="Source/RightButton.cpp"/>
+      <FILE id="C55f1t" name="RightButton.h" compile="0" resource="0" file="Source/RightButton.h"/>
+      <FILE id="HxPLl4" name="Rotary.cpp" compile="1" resource="0" file="Source/Rotary.cpp"/>
+      <FILE id="mg0yCF" name="Rotary.h" compile="0" resource="0" file="Source/Rotary.h"/>
+      <FILE id="Gb92n0" name="Sampler.cpp" compile="1" resource="0" file="Source/Sampler.cpp"/>
+      <FILE id="VX5uSK" name="Sampler.h" compile="0" resource="0" file="Source/Sampler.h"/>
+      <FILE id="bXzOyK" name="StopButton.cpp" compile="1" resource="0" file="Source/StopButton.cpp"/>
+      <FILE id="EM7wMk" name="StopButton.h" compile="0" resource="0" file="Source/StopButton.h"/>
+      <FILE id="yDIHwJ" name="TimeManager.cpp" compile="1" resource="0" file="Source/TimeManager.cpp"/>
+      <FILE id="Kp3KQk" name="TimeManager.h" compile="0" resource="0" file="Source/TimeManager.h"/>
+      <FILE id="JAvcdQ" name="UpButton.cpp" compile="1" resource="0" file="Source/UpButton.cpp"/>
+      <FILE id="O0Qi9j" name="UpButton.h" compile="0" resource="0" file="Source/UpButton.h"/>
+      <FILE id="pXMcS9" name="VerticalSlider.cpp" compile="1" resource="0"
+            file="Source/VerticalSlider.cpp"/>
+      <FILE id="Ww1F1y" name="VerticalSlider.h" compile="0" resource="0"
+            file="Source/VerticalSlider.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

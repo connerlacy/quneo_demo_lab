@@ -20,6 +20,8 @@ MidiManager::MidiManager(AudioEngine* audioEngine_, PluginMessage* mw_)
 MidiManager::~MidiManager()
 {
 	midiInput->stop();
+	deleteAndZero(midiInput);
+	deleteAndZero(midiOutput);
 }
 
 void MidiManager::timerCallback()
@@ -51,7 +53,7 @@ void MidiManager::timerCallback()
         //------ Set up MIDI input device
         for (int i =0; i < MidiInput::getDevices().size(); i++)
         {
-            //std::cout << String("midi input device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
+            std::cout << String("midi input device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
             
             if(MidiInput::getDevices()[i].contains(String("QUNEO")))
             {

@@ -13,9 +13,9 @@
 //==============================================================================
 MainAppWindow::MainAppWindow()
     : DocumentWindow (JUCEApplication::getInstance()->getApplicationName(),
-                      Colour(0x00000000),
+                      Colour(0xFF000000),
                       DocumentWindow::allButtons)
-{    
+{   
     //Init fampler and filter(s)
     sampler = new Sampler();
     looperSourcePlayer.setSource(sampler);
@@ -34,7 +34,7 @@ MainAppWindow::MainAppWindow()
     quNeoGraph = new QuNeoGraph(audioEngine);
     quNeoGraph->setLongSliderSampler(sampler);
     setContentOwned(quNeoGraph, true);
-    
+
     pluginMessage = new PluginMessage();
     quNeoGraph->addChildComponent(pluginMessage,-1);
     pluginMessage->setTopLeftPosition(0, 0);
@@ -42,7 +42,6 @@ MainAppWindow::MainAppWindow()
     abq = new AboutQuNeoDemo();
     quNeoGraph->addChildComponent(abq,-1);
     abq->setTopLeftPosition(0,0);
-    
     
     mouseMask = new MouseMask(abq);
     quNeoGraph->addChildComponent(mouseMask,-1);
@@ -66,13 +65,15 @@ MainAppWindow::MainAppWindow()
     }
     
     //Initialize device manager (Start Audio)
-    deviceManager.initialise (0, 2, nullptr, true, String::empty, 0);
+    //deviceManager.initialise (1, 2, nullptr, true, String::empty, 0);
+	deviceManager.initialise (2, 2, 0, true, String::empty, 0);
 }
 
 MainAppWindow::~MainAppWindow()
 {
     audioSourcePlayer.setSource (0);
     deviceManager.removeAudioCallback (&audioSourcePlayer);
+	deviceManager.removeAudioCallback (&filterSourcePlayer);
 }
 
 void MainAppWindow::closeButtonPressed()

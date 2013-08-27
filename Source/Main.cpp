@@ -28,6 +28,7 @@ public:
     //==============================================================================
     void initialise (const String& commandLine)
     {
+		printf("help.");
         // Do your application's initialisation code here..
         mainWindow = new MainAppWindow();
     }
