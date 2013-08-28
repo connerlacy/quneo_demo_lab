@@ -9,6 +9,12 @@
 #include "AudioEngine.h"
 #include "Oscillator.cpp"
 
+#ifdef JUCE_MAC
+#else
+#include "resource.h"
+#include "windows.h"
+#endif //JUCE_MAC
+
 
 AudioEngine::AudioEngine()
 {
@@ -28,19 +34,8 @@ AudioEngine::AudioEngine()
     DirectoryIterator iter1(File(appPath + "/Contents/Resources/audio/pads/1"), true, "*.wav");
     DirectoryIterator iter2(File(appPath + "/Contents/Resources/audio/pads/2"), true, "*.wav");
     DirectoryIterator iter3(File(appPath + "/Contents/Resources/audio/pads/3"), true, "*.wav");
-#else
-    //Sample file path format
-	String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
-	appPath = appPath.dropLastCharacters(14);
-	//DBG(appPath + "\audio\pads\0");
 
-    DirectoryIterator iter0(File(appPath + "/audio/pads/0"), true, "*.wav");
-    DirectoryIterator iter1(File(appPath + "/audio/pads/1"), true, "*.wav");
-    DirectoryIterator iter2(File(appPath + "/audio/pads/2"), true, "*.wav");
-    DirectoryIterator iter3(File(appPath + "/audio/pads/3"), true, "*.wav");
-#endif
-    
-    uint32 i = 36; //Loweset Pad Note on Preset 1
+	uint32 i = 36; //Loweset Pad Note on Preset 1
     
     //Loop through samples in resources
     while (iter0.next()) 
@@ -144,15 +139,50 @@ AudioEngine::AudioEngine()
         i++;
     }
     
+#else
+
+	for(int i = 0; i < 64; i++)
+	{
+	HRSRC sampleResource = FindResource(NULL, MAKEINTRESOURCE(103 + i), "WAVE");
+	char* sampleData = (char*)LockResource(LoadResource(NULL, sampleResource));
+	DWORD sampleDataSize = SizeofResource(NULL,sampleResource);
+
+	ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new MemoryInputStream (sampleData, sampleDataSize, false),true));
+        
+    synth.addVoice(new SamplerVoice());
+        
+    BigInteger notes;
+    notes.setRange (i+36, 1, true);
+        
+    synth.addSound (new SamplerSound ("sample",
+                                      *audioReader,
+                                      notes,
+                                      i+36,   // root midi note
+                                      0.005,  // attack time
+                                      0.005,  // release time
+                                      10.0  // maximum sample length
+                                      
+                                      ));
+	}
+
+
+#endif
+    
+
     //---------------------- Button Sound
     //DirectoryIterator iterButtons(File(appPath + "/Contents/Resources/audio/buttons"), true, "*.wav");
 #ifdef JUCE_MAC
 currentSample = File(appPath + "/Contents/Resources/audio/buttons/cheer.wav");
+ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new FileInputStream (currentSample),true));
 #else
-currentSample = File(appPath + "/audio/buttons/cheer.wav");
+	HRSRC cheerResource = FindResource(NULL, MAKEINTRESOURCE(IDR_WAVE2), "WAVE");
+	char* cheerData = (char*)LockResource(LoadResource(NULL, cheerResource));
+	DWORD cheerDataSize = SizeofResource(NULL,cheerResource);
+
+	ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new MemoryInputStream (cheerData, cheerDataSize, false),true));
 #endif
     
-    ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new FileInputStream (currentSample),true));
+    
     
     for(int b = 0; b < 16; b++)
     {
@@ -171,6 +201,8 @@ currentSample = File(appPath + "/audio/buttons/cheer.wav");
                                       10.0  // maximum sample length
                                       
                                       ));
+
+									  
     
     //---------------------------------- Setup Oscillator
     oscSynth.addVoice(new SineWaveVoice(this));

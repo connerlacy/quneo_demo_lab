@@ -1,24 +1,174 @@
-#undef  WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION  1,0,0,0
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 0,0,0,0
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x0L
+ FILETYPE 0x0L
+ FILESUBTYPE 0x0L
 BEGIN
-  BLOCK "StringFileInfo"
-  BEGIN
-    BLOCK "040904E4"
+    BLOCK "StringFileInfo"
     BEGIN
-      VALUE "CompanyName",  "Keith McMillen Instruments\0"
-      VALUE "FileDescription",  "QuNeoDemo\0"
-      VALUE "FileVersion",  "1.0.0\0"
-      VALUE "ProductName",  "QuNeoDemo\0"
-      VALUE "ProductVersion",  "1.0.0\0"
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName", "Keith McMillen Instruments"
+            VALUE "FileDescription", "QuNeoDemo"
+            VALUE "FileVersion", "1.0.0"
+            VALUE "ProductName", "QuNeoDemo"
+            VALUE "ProductVersion", "1.0.0"
+        END
     END
-  END
-
-  BLOCK "VarFileInfo"
-  BEGIN
-    VALUE "Translation", 0x409, 65001
-  END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 65001
+    END
 END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.\0"
+END
+
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WAVE
+//
+
+IDR_WAVE1               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\longSlider\\Funky Drummer.wav"
+IDR_WAVE2               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\buttons\\cheer.wav"
+IDR_WAVE3               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_000.wav"
+IDR_WAVE4               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_001.wav"
+IDR_WAVE5               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_002.wav"
+IDR_WAVE6               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_003.wav"
+IDR_WAVE7               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_004.wav"
+IDR_WAVE8               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_005.wav"
+IDR_WAVE9               WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_006.wav"
+IDR_WAVE10              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_007.wav"
+IDR_WAVE11              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_008.wav"
+IDR_WAVE12              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_009.wav"
+IDR_WAVE13              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_010.wav"
+IDR_WAVE14              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_011.wav"
+IDR_WAVE15              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_012.wav"
+IDR_WAVE16              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_013.wav"
+IDR_WAVE17              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_014.wav"
+IDR_WAVE18              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\0\\samp_015.wav"
+IDR_WAVE19              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_000.wav"
+IDR_WAVE20              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_001.wav"
+IDR_WAVE21              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_002.wav"
+IDR_WAVE22              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_003.wav"
+IDR_WAVE23              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_004.wav"
+IDR_WAVE24              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_005.wav"
+IDR_WAVE25              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_006.wav"
+IDR_WAVE26              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_007.wav"
+IDR_WAVE27              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_008.wav"
+IDR_WAVE28              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_009.wav"
+IDR_WAVE29              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_010.wav"
+IDR_WAVE30              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_011.wav"
+IDR_WAVE31              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_012.wav"
+IDR_WAVE32              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_013.wav"
+IDR_WAVE33              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_014.wav"
+IDR_WAVE34              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\1\\samp_015.wav"
+IDR_WAVE35              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_000.wav"
+IDR_WAVE36              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_001.wav"
+IDR_WAVE37              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_002.wav"
+IDR_WAVE38              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_003.wav"
+IDR_WAVE39              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_004.wav"
+IDR_WAVE40              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_005.wav"
+IDR_WAVE41              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_006.wav"
+IDR_WAVE42              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_007.wav"
+IDR_WAVE43              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_008.wav"
+IDR_WAVE44              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_009.wav"
+IDR_WAVE45              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_010.wav"
+IDR_WAVE46              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_011.wav"
+IDR_WAVE47              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_012.wav"
+IDR_WAVE48              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_013.wav"
+IDR_WAVE49              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_014.wav"
+IDR_WAVE50              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\2\\samp_015.wav"
+IDR_WAVE51              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_000.wav"
+IDR_WAVE52              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_001.wav"
+IDR_WAVE53              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_002.wav"
+IDR_WAVE54              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_003.wav"
+IDR_WAVE55              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_004.wav"
+IDR_WAVE56              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_005.wav"
+IDR_WAVE57              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_006.wav"
+IDR_WAVE58              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_007.wav"
+IDR_WAVE59              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_008.wav"
+IDR_WAVE60              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_009.wav"
+IDR_WAVE61              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_010.wav"
+IDR_WAVE62              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_011.wav"
+IDR_WAVE63              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_012.wav"
+IDR_WAVE64              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_013.wav"
+IDR_WAVE65              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_014.wav"
+IDR_WAVE66              WAVE                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\audio\\pads\\3\\samp_015.wav"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "C:\\Users\\Conner Lacy\\Desktop\\QuNeoDemo\\Builds\\Resources\\QuNeoDemo.ico"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

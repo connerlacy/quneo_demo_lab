@@ -8,6 +8,12 @@
 
 #include "Sampler.h"
 
+#ifdef JUCE_MAC
+#else
+#include "windows.h"
+#include "resource.h"
+#endif //JUCE_MAC
+
 Sampler::Sampler()
 {
     
@@ -15,16 +21,12 @@ Sampler::Sampler()
     String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
     File currentSample;
     
+	WavAudioFormat wavFormat;
+
 #ifdef JUCE_MAC
     DirectoryIterator iter(File(appPath + "/Contents/Resources/audio/longSlider"), true, "*.wav");
-#else
-	appPath = appPath.dropLastCharacters(14);
-	DirectoryIterator iter(File(appPath + "/audio/longSlider"), true, "*.wav");
-#endif
-    
-    WavAudioFormat wavFormat;
-    
-    while (iter.next()) 
+
+	    while (iter.next()) 
     {
         currentSample = iter.getFile();
         
@@ -47,6 +49,34 @@ Sampler::Sampler()
                                                ));
         }
     }
+#else
+
+	HRSRC sampleResource = FindResource(NULL, MAKEINTRESOURCE(IDR_WAVE1), "WAVE");
+	char* sampleData = (char*)LockResource(LoadResource(NULL, sampleResource));
+	DWORD sampleDataSize = SizeofResource(NULL,sampleResource);
+
+	ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new MemoryInputStream (sampleData, sampleDataSize, false),true));
+            
+            looper.addVoice(new SamplerVoice());
+            
+            BigInteger notes;
+            notes.setRange (127, 1, true);
+            
+            looper.addSound (new SamplerSound ("sample",
+                                               *audioReader,
+                                               notes,
+                                               127,   // root midi note
+                                               0.005,  // attack time
+                                               0.005,  // release time
+                                               10.0  // maximum sample length
+                                               ));
+#endif
+    
+    
+    
+
+
+
 }
 
 Sampler::~Sampler()
