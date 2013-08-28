@@ -3,7 +3,7 @@
 
   This is an automatically generated file created by the Jucer!
 
-  Creation date:  24 Aug 2013 8:58:35pm
+  Creation date:  28 Aug 2013 4:07:13pm
 
   Be careful when adding custom code to these files, as only the code within
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
@@ -111,7 +111,7 @@ void AboutQuNeoDemo::paint (Graphics& g)
 
 void AboutQuNeoDemo::resized()
 {
-    label->setBounds (10, 9, 235, 151);
+    label->setBounds (10, 9, 286, 151);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -143,7 +143,7 @@ BEGIN_JUCER_METADATA
                hasStroke="1" stroke="1, mitered, butt" strokeColour="solid: b3000000"/>
   </BACKGROUND>
   <LABEL name="new label" id="77bd41297d7ab657" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="10 9 235 151" textCol="95ffffff"
+         explicitFocusOrder="0" pos="10 9 286 151" textCol="95ffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="&#10;Keith McMillen Instruments' QuNeo Demo&#10;&#10;Written By:&#10;Conner Lacy | conner@keithmcmillen.com&#10;[source available @ github.com/connerlacy]&#10;&#10;Thanks to:&#10;&#10;Dustin Schultz | dustin@keithmcmillen.com&#10;Matt Hettich | matt@keithmcmillen.com&#10;&#10;for their audio contributions."
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="12.5" bold="0" italic="0" justification="33"/>
