@@ -10,6 +10,8 @@
 
 Sampler::Sampler()
 {
+    
+    //sR = 44100.0;
     String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
     File currentSample;
     
@@ -69,7 +71,7 @@ void Sampler::setPlayerGain(float gain)
 
 void Sampler::prepareToPlay(int samplesPerBlockExpected, double sampleRate)
 {
-    looper.setCurrentPlaybackSampleRate(sampleRate);
+    looper.setCurrentPlaybackSampleRate(44100.0);
 }
 
 void Sampler::releaseResources()

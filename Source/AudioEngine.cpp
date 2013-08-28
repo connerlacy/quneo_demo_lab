@@ -12,10 +12,12 @@
 
 AudioEngine::AudioEngine()
 {
+    sR = 44100.0;
     synth.clearSounds();
     
     File currentSample;
     WavAudioFormat wavFormat;
+    
     
 #ifdef JUCE_MAC
 	//Sample file path format
@@ -195,11 +197,11 @@ void AudioEngine::setSamplerFilter(IIRFilterAudioSource* fS)
 void AudioEngine::prepareToPlay(int samplesPerBlockExpected, double sampleRate)
 {
     //Class sample rate var
-    sR = sampleRate;
+    //sR = sampleRate;
     
     //Set class synth sample rates
-    synth.setCurrentPlaybackSampleRate(sampleRate);
-    oscSynth.setCurrentPlaybackSampleRate(sampleRate);
+    synth.setCurrentPlaybackSampleRate(sR);
+    oscSynth.setCurrentPlaybackSampleRate(sR);
     
     //Init filters
     for (int i =0; i<2; i++)
