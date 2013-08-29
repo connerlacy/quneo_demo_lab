@@ -6,9 +6,9 @@ const uint8 loadPreset1[15] =   {0x00 , 0x01 , 0x5F , 0x7A , 0x1E , 0x00 , 0x01 
 
 MidiManager::MidiManager(AudioEngine* audioEngine_, PluginMessage* mw_) 
 :   audioEngine(audioEngine_),
-    mw(mw_),
-    midiNote(0), 
-    velocity(0)
+mw(mw_),
+midiNote(0), 
+velocity(0)
 {
     midiInput = nullptr;
     midiOutput = nullptr;
@@ -20,14 +20,12 @@ MidiManager::MidiManager(AudioEngine* audioEngine_, PluginMessage* mw_)
 MidiManager::~MidiManager()
 {
 	/*midiInput->stop();
-    midiOutput->clearAllPendingMessages();
-    midiOutput->stopBackgroundThread();
-	deleteAndZero(midiInput);
-	deleteAndZero(midiOutput);
-    delete midiOutput;
-    //~midiOutput();*/
-    
-    
+     midiOutput->clearAllPendingMessages();
+     midiOutput->stopBackgroundThread();
+     deleteAndZero(midiInput);
+     deleteAndZero(midiOutput);
+     delete midiOutput;
+     //~midiOutput();*/
 }
 
 void MidiManager::timerCallback()
@@ -61,13 +59,27 @@ void MidiManager::timerCallback()
         {
             std::cout << String("midi input device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
             
-            if(MidiInput::getDevices()[i].contains(String("QUNEO")))
+            if(SystemStats::getOperatingSystemType() == SystemStats::WinXP)
             {
-                midiInput = MidiInput::openDevice(i, this);
+                if(MidiInput::getDevices()[i].contains(String("USB Audio Device")))
+                {
+                    midiInput = MidiInput::openDevice(i, this);
+                }
+                else
+                {
+                    midiInput = nullptr;
+                }  
             }
             else
             {
-                midiInput = nullptr;
+                if(MidiInput::getDevices()[i].contains(String("QUNEO")))
+                {
+                    midiInput = MidiInput::openDevice(i, this);
+                }
+                else
+                {
+                    midiInput = nullptr;
+                } 
             }
         }
         
@@ -89,13 +101,27 @@ void MidiManager::timerCallback()
         {
             //std::cout << String("midi output device: ") << MidiOutput::getDevices()[i] << String(" index:") << i << "\n";
             
-            if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
+            if(SystemStats::getOperatingSystemType() == SystemStats::WinXP)
             {
-                midiOutput = MidiOutput::openDevice(i);
+                if(MidiOutput::getDevices()[i].contains(String("USB Audio Device")))
+                {
+                    midiOutput = MidiOutput::openDevice(i);
+                }
+                else
+                {
+                    midiOutput = nullptr;
+                }
             }
             else
             {
-                midiOutput = nullptr;
+                if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
+                {
+                    midiOutput = MidiOutput::openDevice(i);
+                }
+                else
+                {
+                    midiOutput = nullptr;
+                } 
             }
         }
         
