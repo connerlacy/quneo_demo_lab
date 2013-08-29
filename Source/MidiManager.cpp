@@ -64,6 +64,7 @@ void MidiManager::timerCallback()
                 if(MidiInput::getDevices()[i].contains(String("USB Audio Device")))
                 {
                     midiInput = MidiInput::openDevice(i, this);
+                    break;
                 }
                 else
                 {
@@ -75,6 +76,7 @@ void MidiManager::timerCallback()
                 if(MidiInput::getDevices()[i].contains(String("QUNEO")))
                 {
                     midiInput = MidiInput::openDevice(i, this);
+                    break;
                 }
                 else
                 {
@@ -106,6 +108,7 @@ void MidiManager::timerCallback()
                 if(MidiOutput::getDevices()[i].contains(String("USB Audio Device")))
                 {
                     midiOutput = MidiOutput::openDevice(i);
+                    break;
                 }
                 else
                 {
@@ -117,6 +120,7 @@ void MidiManager::timerCallback()
                 if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
                 {
                     midiOutput = MidiOutput::openDevice(i);
+                    break;
                 }
                 else
                 {
