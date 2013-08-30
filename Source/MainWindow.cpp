@@ -61,6 +61,7 @@ MainAppWindow::MainAppWindow()
     //Create Midi manager
     midiManager = new MidiManager(audioEngine, pluginMessage);
     midiManager->addActionListener(quNeoGraph);
+    midiManager->sampler = sampler;
     
     //Give Audio engine access to pad methods
     for(int i = 0; i < 16; i++)
@@ -71,6 +72,9 @@ MainAppWindow::MainAppWindow()
     //Initialize device manager (Start Audio)
     //deviceManager.initialise (1, 2, nullptr, true, String::empty, 0);
 	deviceManager.initialise (2, 2, 0, true, String::empty, 0);
+    
+    midiManager->startTimer(0,50);
+    midiManager->startTimer(1,50);
 }
 
 MainAppWindow::~MainAppWindow()

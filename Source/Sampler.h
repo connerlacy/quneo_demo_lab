@@ -19,6 +19,9 @@ class Sampler : public AudioSource
     
     Synthesiser looper;
     
+    float latestMagnitude;
+    float gainMult;
+    
     MidiBuffer* looperBuffer;
     void setMidiBuffer(MidiBuffer* bffr);
     

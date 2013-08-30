@@ -18,6 +18,8 @@ Sampler::Sampler()
 {
     
     //sR = 44100.0;
+    latestMagnitude = 0.0f;
+    gainMult = 1.0f;
     String appPath = File::getSpecialLocation(File::currentApplicationFile).getFullPathName();
     File currentSample;
     
@@ -97,6 +99,8 @@ void Sampler::setPlayer(AudioSourcePlayer* plr)
 void Sampler::setPlayerGain(float gain)
 {
     player->setGain(gain);
+    gainMult = gain;
+    
 }
 
 void Sampler::prepareToPlay(int samplesPerBlockExpected, double sampleRate)
@@ -141,4 +145,6 @@ void Sampler::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
     }
     
     looper.renderNextBlock(*bufferToFill.buffer, looperMidi, 0, bufferToFill.numSamples);
+    
+    latestMagnitude = bufferToFill.buffer->getMagnitude(bufferToFill.startSample, bufferToFill.numSamples);
 }

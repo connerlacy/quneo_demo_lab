@@ -17,7 +17,7 @@
 
 class MidiManager : public MidiInputCallback,
                     public ActionBroadcaster,
-                    public Timer
+                    public MultiTimer
 {
 public:
 	
@@ -36,7 +36,7 @@ public:
     
 	//required of any superclass of MidiInputCallback.  This is called everytime a midi message is played
 	void handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message);
-    void timerCallback();
+    void timerCallback(int timerId);
 
     AudioEngine* audioEngine;
     Sampler* sampler;

@@ -24,6 +24,8 @@ AudioEngine::AudioEngine()
     File currentSample;
     WavAudioFormat wavFormat;
     
+    latestMagnitude = 0.0f;
+    
     
 #ifdef JUCE_MAC
 	//Sample file path format
@@ -387,4 +389,7 @@ void AudioEngine::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
     {
         filter[i]->processSamples(bufferToFill.buffer->getSampleData(i), bufferToFill.numSamples);
     }
+    
+    //Get magnitude
+    latestMagnitude = bufferToFill.buffer->getMagnitude(bufferToFill.startSample, bufferToFill.numSamples);
 }

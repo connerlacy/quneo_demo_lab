@@ -37,6 +37,8 @@ public:
     Synthesiser oscSynth;
     //Synthesiser looper;
     
+    float latestMagnitude;
+    
     MidiBuffer* looperBuffer;
     void setMidiBuffer(MidiBuffer* bffr);
     

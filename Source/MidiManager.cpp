@@ -14,7 +14,8 @@ velocity(0)
     midiOutput = nullptr;
     
     //Begin polling
-    this->startTimer(100);
+    //this->startTimer(0,50);
+    //this->startTimer(1,50);
 }
 
 MidiManager::~MidiManager()
@@ -28,7 +29,7 @@ MidiManager::~MidiManager()
      //~midiOutput();*/
 }
 
-void MidiManager::timerCallback()
+void MidiManager::timerCallback(int timerId)
 {
     static bool inputConnected = false;
     static bool outputConnected = false;
@@ -38,117 +39,153 @@ void MidiManager::timerCallback()
     static int numInputs  = -1;
     static int numOutputs = -1;
     
-    
-    //Should we re-check devices or not (based on a difference in number)
-    if(numInputs != MidiInput::getDevices().size() || numOutputs != MidiOutput::getDevices().size())
-    {
-        numInputs = MidiInput::getDevices().size();
-        numOutputs = MidiOutput::getDevices().size();
-        checkDevices = true;
-    }
-    else
-    {
-        checkDevices = false;
-    }
-    
-    if(checkDevices)
+    if(timerId == 0)
     {
         
-        //------ Set up MIDI input device
-        for (int i =0; i < MidiInput::getDevices().size(); i++)
+        //Should we re-check devices or not (based on a difference in number)
+        if(numInputs != MidiInput::getDevices().size() || numOutputs != MidiOutput::getDevices().size())
         {
-            std::cout << String("midi input device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
-            
-            if(SystemStats::getOperatingSystemType() == SystemStats::WinXP)
-            {
-                if(MidiInput::getDevices()[i].contains(String("USB Audio Device")))
-                {
-                    midiInput = MidiInput::openDevice(i, this);
-                    break;
-                }
-                else
-                {
-                    midiInput = nullptr;
-                }  
-            }
-            else
-            {
-                if(MidiInput::getDevices()[i].contains(String("QUNEO")))
-                {
-                    midiInput = MidiInput::openDevice(i, this);
-                    break;
-                }
-                else
-                {
-                    midiInput = nullptr;
-                } 
-            }
-        }
-        
-        if(midiInput) 
-        {
-            inputConnected = true;
-            midiInput->start();
+            numInputs = MidiInput::getDevices().size();
+            numOutputs = MidiOutput::getDevices().size();
+            checkDevices = true;
         }
         else
         {
-            inputConnected = false;
-            //std::cout << "Input not connected\n";
+            checkDevices = false;
         }
         
-        
-        //------ Set up MIDI output device
-        
-        for (int i =0; i < MidiOutput::getDevices().size(); i++)
+        if(checkDevices)
         {
-            //std::cout << String("midi output device: ") << MidiOutput::getDevices()[i] << String(" index:") << i << "\n";
             
-            if(SystemStats::getOperatingSystemType() == SystemStats::WinXP)
+            //------ Set up MIDI input device
+            for (int i =0; i < MidiInput::getDevices().size(); i++)
             {
-                if(MidiOutput::getDevices()[i].contains(String("USB Audio Device")))
+                std::cout << String("midi input device: ") << MidiInput::getDevices()[i] << String(" index:") << i << "\n";
+                
+                if(SystemStats::getOperatingSystemType() == SystemStats::WinXP)
                 {
-                    midiOutput = MidiOutput::openDevice(i);
-                    break;
+                    if(MidiInput::getDevices()[i].contains(String("USB Audio Device")))
+                    {
+                        midiInput = MidiInput::openDevice(i, this);
+                        break;
+                    }
+                    else
+                    {
+                        midiInput = nullptr;
+                    }  
                 }
                 else
                 {
-                    midiOutput = nullptr;
+                    if(MidiInput::getDevices()[i].contains(String("QUNEO")))
+                    {
+                        midiInput = MidiInput::openDevice(i, this);
+                        break;
+                    }
+                    else
+                    {
+                        midiInput = nullptr;
+                    } 
                 }
+            }
+            
+            if(midiInput) 
+            {
+                inputConnected = true;
+                midiInput->start();
             }
             else
             {
-                if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
+                inputConnected = false;
+                //std::cout << "Input not connected\n";
+            }
+            
+            
+            //------ Set up MIDI output device
+            
+            for (int i =0; i < MidiOutput::getDevices().size(); i++)
+            {
+                //std::cout << String("midi output device: ") << MidiOutput::getDevices()[i] << String(" index:") << i << "\n";
+                
+                if(SystemStats::getOperatingSystemType() == SystemStats::WinXP)
                 {
-                    midiOutput = MidiOutput::openDevice(i);
-                    break;
+                    if(MidiOutput::getDevices()[i].contains(String("USB Audio Device")))
+                    {
+                        midiOutput = MidiOutput::openDevice(i);
+                        break;
+                    }
+                    else
+                    {
+                        midiOutput = nullptr;
+                    }
                 }
                 else
                 {
-                    midiOutput = nullptr;
-                } 
+                    if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
+                    {
+                        midiOutput = MidiOutput::openDevice(i);
+                        break;
+                    }
+                    else
+                    {
+                        midiOutput = nullptr;
+                    } 
+                }
+            }
+            
+            //Load Preset 0 on board
+            if(midiOutput) 
+            {
+                outputConnected = true;
+                midiOutput->sendMessageNow(MidiMessage::createSysExMessage(loadPreset1,17));
+            }
+            else
+            {
+                outputConnected = false;
+                //std::cout << "Output note connected\n";
             }
         }
         
-        //Load Preset 0 on board
-        if(midiOutput) 
+        if(outputConnected && inputConnected)
         {
-            outputConnected = true;
-            midiOutput->sendMessageNow(MidiMessage::createSysExMessage(loadPreset1,17));
+            mw->setVisible(false);
         }
         else
         {
-            outputConnected = false;
-            //std::cout << "Output note connected\n";
+            mw->setVisible(true);
         }
     }
     
-    if(outputConnected && inputConnected)
+    
+    //-------------------------- VU Meter Callback
+    else if(timerId == 1)
     {
-        mw->setVisible(false);
-    }
-    else
-    {
-        mw->setVisible(true);
+        //DBG(String(audioEngine->latestMagnitude));
+        
+        //std::cout << audioEngine->latestMagnitude;
+        int amp;
+        
+        if(audioEngine->latestMagnitude > sampler->latestMagnitude)
+        {
+            amp = (int)(audioEngine->latestMagnitude*127.0f);
+        }
+        else
+        {
+            amp = (int)(sampler->latestMagnitude*sampler->gainMult*127.0f);
+        }
+        
+        
+        for (int i =0; i<8; i++) 
+        {
+            if(i < 4)
+            {
+               midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+1,amp)); 
+            }
+            else
+            {
+                midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+4,amp));
+            }
+            
+        }
     }
 }
 
