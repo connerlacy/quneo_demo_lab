@@ -160,31 +160,32 @@ void MidiManager::timerCallback(int timerId)
     else if(timerId == 1)
     {
         //DBG(String(audioEngine->latestMagnitude));
-        
-        //std::cout << audioEngine->latestMagnitude;
-        int amp;
-        
-        if(audioEngine->latestMagnitude > sampler->latestMagnitude)
+        if(outputConnected && inputConnected)
         {
-            amp = (int)(audioEngine->latestMagnitude*127.0f);
-        }
-        else
-        {
-            amp = (int)(sampler->latestMagnitude*sampler->gainMult*127.0f);
-        }
-        
-        
-        for (int i =0; i<8; i++) 
-        {
-            if(i < 4)
+            //std::cout << audioEngine->latestMagnitude;
+            int amp;
+            
+            if(audioEngine->latestMagnitude > sampler->latestMagnitude)
             {
-               midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+1,amp)); 
+                amp = (int)(audioEngine->latestMagnitude*127.0f);
             }
             else
             {
-                midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+4,amp));
+                amp = (int)(sampler->latestMagnitude*sampler->gainMult*127.0f);
             }
             
+            
+            for (int i =0; i<8; i++) 
+            {
+                if(i < 4)
+                {
+                    midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+1,amp)); 
+                }
+                else
+                {
+                    midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+4,amp));
+                }
+            }
         }
     }
 }
