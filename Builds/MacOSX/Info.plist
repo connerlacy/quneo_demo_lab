@@ -11,7 +11,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.keithmcmillen.QuNeoDemo</string>
 	<key>CFBundleName</key>
-	<string>QuNeoDemo</string>
+	<string>QuNeoDemoLab</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

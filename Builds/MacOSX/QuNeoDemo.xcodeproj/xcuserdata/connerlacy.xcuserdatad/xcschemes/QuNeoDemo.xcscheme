@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B2989A1CA02B15696716CB13"
-               BuildableName = "QuNeoDemo.app"
+               BuildableName = "QuNeo Demo Lab.app"
                BlueprintName = "QuNeoDemo"
                ReferencedContainer = "container:QuNeoDemo.xcodeproj">
             </BuildableReference>
@@ -42,7 +42,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B2989A1CA02B15696716CB13"
-            BuildableName = "QuNeoDemo.app"
+            BuildableName = "QuNeo Demo Lab.app"
             BlueprintName = "QuNeoDemo"
             ReferencedContainer = "container:QuNeoDemo.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B2989A1CA02B15696716CB13"
-            BuildableName = "QuNeoDemo.app"
+            BuildableName = "QuNeo Demo Lab.app"
             BlueprintName = "QuNeoDemo"
             ReferencedContainer = "container:QuNeoDemo.xcodeproj">
          </BuildableReference>

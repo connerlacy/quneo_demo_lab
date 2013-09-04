@@ -47,7 +47,7 @@ public:
     //==============================================================================
     const String getApplicationName()
     {
-        return "QuNeo Demo";
+        return "QuNeo Demo Lab";
     }
 
     const String getApplicationVersion()
