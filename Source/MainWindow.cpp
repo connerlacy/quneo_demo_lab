@@ -73,8 +73,8 @@ MainAppWindow::MainAppWindow()
     //deviceManager.initialise (1, 2, nullptr, true, String::empty, 0);
 	deviceManager.initialise (2, 2, 0, true, String::empty, 0);
     
-    midiManager->startTimer(0,50);
-    midiManager->startTimer(1,50);
+    midiManager->startTimer(0,100);
+    midiManager->startTimer(1,100);
 }
 
 MainAppWindow::~MainAppWindow()

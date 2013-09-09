@@ -76,7 +76,7 @@ void MidiManager::timerCallback(int timerId)
                 }
                 else
                 {
-                    if(MidiInput::getDevices()[i].contains(String("QUNEO")))
+                    if(MidiInput::getDevices()[i].contains(String("QUNEO")) || MidiInput::getDevices()[i].contains(String("QuNeo")))
                     {
                         midiInput = MidiInput::openDevice(i, this);
                         break;
@@ -104,7 +104,7 @@ void MidiManager::timerCallback(int timerId)
             
             for (int i =0; i < MidiOutput::getDevices().size(); i++)
             {
-                //std::cout << String("midi output device: ") << MidiOutput::getDevices()[i] << String(" index:") << i << "\n";
+                std::cout << String("midi output device: ") << MidiOutput::getDevices()[i] << String(" index:") << i << "\n";
                 
                 if(SystemStats::getOperatingSystemType() == SystemStats::WinXP)
                 {
@@ -120,7 +120,7 @@ void MidiManager::timerCallback(int timerId)
                 }
                 else
                 {
-                    if(MidiOutput::getDevices()[i].contains(String("QUNEO")))
+                    if(MidiOutput::getDevices()[i].contains(String("QUNEO")) || MidiInput::getDevices()[i].contains(String("QuNeo")))
                     {
                         midiOutput = MidiOutput::openDevice(i);
                         break;
