@@ -21,7 +21,14 @@ MainAppWindow::MainAppWindow()
                       DocumentWindow::allButtons)
 {   
 	menuBarObject = new MenuBarObject(&commandManager, &looperSourcePlayer, &audioSourcePlayer, &filterSourcePlayer);
-	this->setMenuBar(menuBarObject, 20);
+    
+#ifdef JUCE_MAC
+    MenuBarModel::setMacMainMenu(menuBarObject);
+    this->setMenuBar(0);
+#else
+    this->setMenuBar(menuBarObject, 20);     
+#endif
+	
 
     //Init fampler and filter(s)
     sampler = new Sampler();
@@ -63,7 +70,7 @@ MainAppWindow::MainAppWindow()
 
 
 #ifdef JUCE_MAC
- 
+    centreWithSize (726, 549); 
 #else
     centreWithSize (726, 549 + 20);     
 #endif
@@ -114,6 +121,7 @@ MainAppWindow::~MainAppWindow()
     deleteAndZero(abq);
     deleteAndZero(mouseMask);
 
+    MenuBarModel::setMacMainMenu(nullptr);
 	this->setMenuBar(nullptr);
 	deleteAndZero(menuBarObject);
 }

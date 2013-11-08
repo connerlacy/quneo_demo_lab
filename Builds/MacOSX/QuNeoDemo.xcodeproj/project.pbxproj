@@ -53,6 +53,7 @@
 		C0DC1077D5B6E4D34C651FBA /* DownButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 354C184F613302667492EB39 /* DownButton.cpp */; };
 		C1140EF6DC0C894B95A49E72 /* Sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2544E33707974BF8F7CBE9E3 /* Sampler.cpp */; };
 		C22BF30A5CE811D24A46B65D /* PlayButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD90B706F3820760FE3AC76D /* PlayButton.cpp */; };
+		D06E40E3182C7629008E97C5 /* MenuBarObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D06E40E1182C7629008E97C5 /* MenuBarObject.cpp */; };
 		D09EE54317CD1FE00094B02D /* audio in Resources */ = {isa = PBXBuildFile; fileRef = D09EE54217CD1FE00094B02D /* audio */; };
 		D0DD85B23A3C87CE0FE1EB4A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427A9AF910E86E6F122B8CB2 /* OpenGL.framework */; };
 		D0EA529317CFFAAE0040C4AA /* QuNeoDemo.icns in Resources */ = {isa = PBXBuildFile; fileRef = D0EA529217CFFAAE0040C4AA /* QuNeoDemo.icns */; };
@@ -767,6 +768,8 @@
 		CF94228E4B28473B2F898C76 /* Main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Source/Main.cpp; sourceTree = SOURCE_ROOT; };
 		D03F90A77A7EE8491804D172 /* juce_ResizableCornerComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ResizableCornerComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_ResizableCornerComponent.cpp; sourceTree = SOURCE_ROOT; };
 		D059B931DF8B7F663E22590F /* juce_MultiTouchMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MultiTouchMapper.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/native/juce_MultiTouchMapper.h; sourceTree = SOURCE_ROOT; };
+		D06E40E1182C7629008E97C5 /* MenuBarObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuBarObject.cpp; path = ../../Source/MenuBarObject.cpp; sourceTree = "<group>"; };
+		D06E40E2182C7629008E97C5 /* MenuBarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuBarObject.h; path = ../../Source/MenuBarObject.h; sourceTree = "<group>"; };
 		D09EE54217CD1FE00094B02D /* audio */ = {isa = PBXFileReference; lastKnownFileType = folder; name = audio; path = ../Resources/audio; sourceTree = "<group>"; };
 		D0BC479CB19C8ABB1B5242E6 /* juce_DrawableRectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_DrawableRectangle.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/drawables/juce_DrawableRectangle.h; sourceTree = SOURCE_ROOT; };
 		D0CAC3F97EB94F1DE7208596 /* juce_mac_CoreGraphicsContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_mac_CoreGraphicsContext.h; path = ../../JuceLibraryCode/modules/juce_graphics/native/juce_mac_CoreGraphicsContext.h; sourceTree = SOURCE_ROOT; };
@@ -1553,6 +1556,8 @@
 			isa = PBXGroup;
 			children = (
 				D0C8D7CA17CD6D4E00DC4D28 /* Graphs */,
+				D06E40E1182C7629008E97C5 /* MenuBarObject.cpp */,
+				D06E40E2182C7629008E97C5 /* MenuBarObject.h */,
 				3A05B2F985F4906064EEDC0D /* AudioEngine.cpp */,
 				85D6EF1475AC645DD87BFF74 /* AudioEngine.h */,
 				3A6B2A18928FD00F7C4DF7F0 /* MainWindow.cpp */,
@@ -2757,6 +2762,7 @@
 				30D60A731AAF17B24508A2FD /* juce_gui_extra.mm in Sources */,
 				033458C9D387D521A55230F9 /* juce_opengl.mm in Sources */,
 				35D41CC23390C3604C394410 /* juce_video.mm in Sources */,
+				D06E40E3182C7629008E97C5 /* MenuBarObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

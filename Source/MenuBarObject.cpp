@@ -35,6 +35,10 @@ const StringArray MenuBarObject::getMenuBarNames()
 const PopupMenu MenuBarObject::getMenuForIndex(int topLevelMenuIndex, const String &menuName)
 {
 	    //ApplicationCommandManager* commandManager = apcm;
+    
+        //DBG("get menu for index called");
+    
+    
 
         PopupMenu menu;
 
@@ -49,8 +53,6 @@ const PopupMenu MenuBarObject::getMenuForIndex(int topLevelMenuIndex, const Stri
 			menu.addItem(unMuteAudio, "Unmute", true, true, Image::null);
 		}
 
-		
-
         /*if (topLevelMenuIndex == 0)
         {
             menu.addCommandItem (commandManager, muteAudio);
@@ -64,8 +66,7 @@ const PopupMenu MenuBarObject::getMenuForIndex(int topLevelMenuIndex, const Stri
 }
 
 void MenuBarObject::menuItemSelected(int menuItemID, int topLevelMenuIndex)
-{
-	
+{	
 	if(menuItemID == muteAudio)
 	{
 		DBG("mute audio");
@@ -76,4 +77,8 @@ void MenuBarObject::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 		DBG("un mute audio");
 		mute = false;
 	}
+    
+#ifdef JUCE_MAC
+    MenuBarModel::setMacMainMenu(this);
+#endif
 }
