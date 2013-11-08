@@ -12,6 +12,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Oscillator.h"
 #include "Pad.h"
+#include "MenuBarObject.h"
 #include <iostream>
 
 //#include "Oscillator.cpp"
@@ -44,6 +45,9 @@ public:
     
     IIRFilterAudioSource* filterSource;
     void setSamplerFilter(IIRFilterAudioSource* fS);
+
+	MenuBarObject* menuBarObject;
+	void setMenuBarObject(MenuBarObject *mb);
     
     //Filter
     IIRFilter* filter[2];

@@ -20,8 +20,12 @@ MainAppWindow::MainAppWindow()
 #endif
                       DocumentWindow::allButtons)
 {   
+	menuBarObject = new MenuBarObject(&commandManager, &looperSourcePlayer, &audioSourcePlayer, &filterSourcePlayer);
+	this->setMenuBar(menuBarObject, 20);
+
     //Init fampler and filter(s)
     sampler = new Sampler();
+	sampler->setMenuBarObject(menuBarObject);
     looperSourcePlayer.setSource(sampler);
     samplerFilter = new IIRFilterAudioSource(sampler, true);
     filterSourcePlayer.setSource(samplerFilter);
@@ -30,6 +34,7 @@ MainAppWindow::MainAppWindow()
  
     //Create Audio Engine and set it as our audio source
     audioEngine = new AudioEngine();
+	audioEngine->setMenuBarObject(menuBarObject);
     audioSourcePlayer.setSource(audioEngine);
     audioEngine->setSamplerFilter(samplerFilter);
     deviceManager.addAudioCallback(&audioSourcePlayer);
@@ -54,9 +59,18 @@ MainAppWindow::MainAppWindow()
     mouseMask->setAlwaysOnTop(true);
     abq->setVisible(false);
     
-    this->setUsingNativeTitleBar(true);
-    centreWithSize (726, 549);
+	this->setUsingNativeTitleBar(true);
+
+
+#ifdef JUCE_MAC
+ 
+#else
+    centreWithSize (726, 549 + 20);     
+#endif
+    
+
     setVisible (true);
+
 
     //Create Midi manager
     midiManager = new MidiManager(audioEngine, pluginMessage);
@@ -75,6 +89,8 @@ MainAppWindow::MainAppWindow()
     
     midiManager->startTimer(0,100);
     midiManager->startTimer(1,100);
+
+
 }
 
 MainAppWindow::~MainAppWindow()
@@ -91,7 +107,6 @@ MainAppWindow::~MainAppWindow()
     
     //deleteAndZero(audioEngine);
     
-    
     deleteAndZero(samplerFilter);
     deleteAndZero(midiManager);
     deleteAndZero(quNeoGraph);
@@ -99,7 +114,8 @@ MainAppWindow::~MainAppWindow()
     deleteAndZero(abq);
     deleteAndZero(mouseMask);
 
-
+	this->setMenuBar(nullptr);
+	deleteAndZero(menuBarObject);
 }
 
 void MainAppWindow::closeButtonPressed()

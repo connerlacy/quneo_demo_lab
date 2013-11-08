@@ -86,6 +86,11 @@ Sampler::~Sampler()
     
 }
 
+void Sampler::setMenuBarObject(MenuBarObject *mbo)
+{
+	menuBarObject = mbo;
+}
+
 void Sampler::setMidiBuffer(MidiBuffer* bffr)
 {
     looperBuffer = bffr;
@@ -115,6 +120,8 @@ void Sampler::releaseResources()
 
 void Sampler::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
 {
+	if(!menuBarObject->mute)
+	{
     //Clear Buffer
     bufferToFill.clearActiveBufferRegion();
     
@@ -147,4 +154,8 @@ void Sampler::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
     looper.renderNextBlock(*bufferToFill.buffer, looperMidi, 0, bufferToFill.numSamples);
     
     latestMagnitude = bufferToFill.buffer->getMagnitude(bufferToFill.startSample, bufferToFill.numSamples);
+	}
+	else{
+	latestMagnitude = 0;
+	}
 }

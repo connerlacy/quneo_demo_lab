@@ -19,6 +19,7 @@
 #include "PluginMessage.h"
 #include "AboutQuNeoDemo.h"
 #include "MouseMask.h"
+#include "MenuBarObject.h"
 
 class AudioEngine;
 
@@ -30,6 +31,8 @@ public:
     //==============================================================================
     MainAppWindow();
     ~MainAppWindow();
+
+	MenuBarObject *menuBarObject;
     
     QuNeoGraph* quNeoGraph;
     MidiManager* midiManager;
@@ -41,6 +44,8 @@ public:
     void showAbout();
     
     AboutQuNeoDemo* abq;
+
+	ApplicationCommandManager commandManager;
 
 
     /* Note: Be careful when overriding DocumentWindow methods - the base class
@@ -60,7 +65,6 @@ private:
     
     Sampler* sampler;
     
-    MenuBarComponent* menuBarModel;
     MouseMask* mouseMask;
     //MidiBuffer* masterMidi;
     //==============================================================================

@@ -10,6 +10,7 @@
 #define __SAMPLER
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "MenuBarObject.h"
 
 class Sampler : public AudioSource
 {
@@ -32,6 +33,9 @@ class Sampler : public AudioSource
     AudioSourcePlayer* player;
     void setPlayer(AudioSourcePlayer* plr);
     void setPlayerGain(float gain);
+
+	MenuBarObject* menuBarObject;
+	void setMenuBarObject(MenuBarObject *mb);
     
 };
 

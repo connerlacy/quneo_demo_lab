@@ -279,6 +279,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Source\MenuBarObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Source\MenuBarObject.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Source\MidiManager.cpp"
 					>
 				</File>
@@ -9709,10 +9717,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\2\samp_000.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\3\samp_000.wav"
 			>
 		</File>
@@ -9722,6 +9726,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\1\samp_000.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\2\samp_000.wav"
 			>
 		</File>
 		<File
@@ -9741,10 +9749,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\2\samp_002.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\0\samp_002.wav"
 			>
 		</File>
@@ -9754,6 +9758,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\3\samp_002.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\2\samp_002.wav"
 			>
 		</File>
 		<File
@@ -9773,10 +9781,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\3\samp_004.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\2\samp_004.wav"
 			>
 		</File>
@@ -9786,6 +9790,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\0\samp_004.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\3\samp_004.wav"
 			>
 		</File>
 		<File
@@ -9805,10 +9813,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\2\samp_006.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\3\samp_006.wav"
 			>
 		</File>
@@ -9818,6 +9822,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\1\samp_006.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\2\samp_006.wav"
 			>
 		</File>
 		<File
@@ -9837,10 +9845,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\3\samp_008.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\0\samp_008.wav"
 			>
 		</File>
@@ -9853,7 +9857,7 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\2\samp_009.wav"
+			RelativePath="..\Resources\audio\pads\3\samp_008.wav"
 			>
 		</File>
 		<File
@@ -9866,6 +9870,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\1\samp_009.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\2\samp_009.wav"
 			>
 		</File>
 		<File
@@ -9885,10 +9893,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\1\samp_011.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\2\samp_011.wav"
 			>
 		</File>
@@ -9898,6 +9902,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\0\samp_011.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\1\samp_011.wav"
 			>
 		</File>
 		<File
@@ -9917,10 +9925,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\1\samp_013.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\0\samp_013.wav"
 			>
 		</File>
@@ -9930,6 +9934,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\2\samp_013.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\1\samp_013.wav"
 			>
 		</File>
 		<File
@@ -9949,10 +9957,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\0\samp_015.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\3\samp_015.wav"
 			>
 		</File>
@@ -9962,6 +9966,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\2\samp_015.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\0\samp_015.wav"
 			>
 		</File>
 	</Files>

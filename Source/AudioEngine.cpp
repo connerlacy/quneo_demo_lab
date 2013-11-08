@@ -223,6 +223,11 @@ AudioEngine::~AudioEngine()
     deleteAndZero(filter[1]);
 }
 
+void AudioEngine::setMenuBarObject(MenuBarObject *mbo)
+{
+	menuBarObject = mbo;
+}
+
 void AudioEngine::setSamplerFilter(IIRFilterAudioSource* fS)
 {
     filterSource = fS;
@@ -290,6 +295,8 @@ void AudioEngine::setMidiBuffer(MidiBuffer* bffr)
 
 void AudioEngine::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
 {
+	if(!menuBarObject->mute)
+	{
     
     //Clear Buffer
     bufferToFill.clearActiveBufferRegion();
@@ -392,4 +399,6 @@ void AudioEngine::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
     
     //Get magnitude
     latestMagnitude = bufferToFill.buffer->getMagnitude(bufferToFill.startSample, bufferToFill.numSamples);
+
+	}
 }
