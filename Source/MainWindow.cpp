@@ -121,7 +121,9 @@ MainAppWindow::~MainAppWindow()
     deleteAndZero(abq);
     deleteAndZero(mouseMask);
 
+#ifdef JUCE_MAC
     MenuBarModel::setMacMainMenu(nullptr);
+#endif
 	this->setMenuBar(nullptr);
 	deleteAndZero(menuBarObject);
 }
