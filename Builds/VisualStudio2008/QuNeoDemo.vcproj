@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="QuNeoDemo"
+	Name="QuNeoDemoLab"
 	ProjectGUID="{81D0A977-BD97-6124-1307-C16C635DB06B}"
 	TargetFrameworkVersion="131072"
 	>
@@ -165,7 +165,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile=".\Release\QuNeoDemo.exe"
+				OutputFile=".\Release\QuNeo Demo Lab.exe"
 				SuppressStartupBanner="true"
 				GenerateManifest="true"
 				IgnoreDefaultLibraryNames=""
@@ -9717,10 +9717,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\3\samp_000.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\0\samp_000.wav"
 			>
 		</File>
@@ -9730,6 +9726,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\2\samp_000.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\3\samp_000.wav"
 			>
 		</File>
 		<File
@@ -9749,10 +9749,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\0\samp_002.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\1\samp_002.wav"
 			>
 		</File>
@@ -9762,6 +9758,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\2\samp_002.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\0\samp_002.wav"
 			>
 		</File>
 		<File
@@ -9781,10 +9781,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\2\samp_004.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\1\samp_004.wav"
 			>
 		</File>
@@ -9794,6 +9790,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\3\samp_004.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\2\samp_004.wav"
 			>
 		</File>
 		<File
@@ -9813,10 +9813,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\3\samp_006.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\0\samp_006.wav"
 			>
 		</File>
@@ -9826,6 +9822,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\2\samp_006.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\3\samp_006.wav"
 			>
 		</File>
 		<File
@@ -9845,10 +9845,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\0\samp_008.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\2\samp_008.wav"
 			>
 		</File>
@@ -9861,7 +9857,7 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\3\samp_009.wav"
+			RelativePath="..\Resources\audio\pads\0\samp_008.wav"
 			>
 		</File>
 		<File
@@ -9874,6 +9870,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\2\samp_009.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\3\samp_009.wav"
 			>
 		</File>
 		<File
@@ -9893,10 +9893,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\2\samp_011.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\3\samp_011.wav"
 			>
 		</File>
@@ -9906,6 +9902,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\1\samp_011.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\2\samp_011.wav"
 			>
 		</File>
 		<File
@@ -9925,10 +9925,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\0\samp_013.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\3\samp_013.wav"
 			>
 		</File>
@@ -9938,6 +9934,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\1\samp_013.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\0\samp_013.wav"
 			>
 		</File>
 		<File
@@ -9957,10 +9957,6 @@
 			>
 		</File>
 		<File
-			RelativePath="..\Resources\audio\pads\3\samp_015.wav"
-			>
-		</File>
-		<File
 			RelativePath="..\Resources\audio\pads\1\samp_015.wav"
 			>
 		</File>
@@ -9970,6 +9966,10 @@
 		</File>
 		<File
 			RelativePath="..\Resources\audio\pads\0\samp_015.wav"
+			>
+		</File>
+		<File
+			RelativePath="..\Resources\audio\pads\3\samp_015.wav"
 			>
 		</File>
 	</Files>
