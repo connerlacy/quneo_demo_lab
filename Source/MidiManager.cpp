@@ -157,37 +157,44 @@ void MidiManager::timerCallback(int timerId)
     
     
     //-------------------------- VU Meter Callback
-    else if(timerId == 1)
-    {
-        //DBG(String(audioEngine->latestMagnitude));
-        if(outputConnected && inputConnected)
-        {
-            //std::cout << audioEngine->latestMagnitude;
-            int amp;
-            
-            if(audioEngine->latestMagnitude > sampler->latestMagnitude)
-            {
-                amp = (int)(audioEngine->latestMagnitude*127.0f);
-            }
-            else
-            {
-                amp = (int)(sampler->latestMagnitude*sampler->gainMult*127.0f);
-            }
-            
-            
-            for (int i =0; i<8; i++) 
-            {
-                if(i < 4)
-                {
-                    midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+1,amp)); 
-                }
-                else
-                {
-                    midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+4,amp));
-                }
-            }
-        }
-    }
+	else if(timerId == 1)
+	{
+		if(!mbo->mute)
+		{
+			//DBG(String(audioEngine->latestMagnitude));
+			if(outputConnected && inputConnected)
+			{
+				//std::cout << audioEngine->latestMagnitude;
+				int amp;
+
+				if(audioEngine->latestMagnitude > sampler->latestMagnitude)
+				{
+					amp = (int)(audioEngine->latestMagnitude*127.0f);
+				}
+				else
+				{
+					amp = (int)(sampler->latestMagnitude*sampler->gainMult*127.0f);
+				}
+
+				for (int i =0; i<8; i++) 
+				{
+					if(i < 4)
+					{
+						midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+1,amp)); 
+					}
+					else
+					{
+						midiOutput->sendMessageNow(MidiMessage::controllerEvent(1,i+4,amp));
+					}
+				}
+			}
+		}
+	}
+}
+
+void MidiManager::setMenuBarObject(MenuBarObject *menuBarObject)
+{
+	mbo = menuBarObject;
 }
 
 void MidiManager::handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message)

@@ -74,13 +74,12 @@ MainAppWindow::MainAppWindow()
 #else
     centreWithSize (726, 549 + 20);     
 #endif
-    
 
     setVisible (true);
 
-
     //Create Midi manager
     midiManager = new MidiManager(audioEngine, pluginMessage);
+	midiManager->setMenuBarObject(menuBarObject);
     midiManager->addActionListener(quNeoGraph);
     midiManager->sampler = sampler;
     
@@ -96,8 +95,6 @@ MainAppWindow::MainAppWindow()
     
     midiManager->startTimer(0,100);
     midiManager->startTimer(1,100);
-
-
 }
 
 MainAppWindow::~MainAppWindow()

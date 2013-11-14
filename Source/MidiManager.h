@@ -14,6 +14,7 @@
 #include "AudioEngine.h"
 #include "Sampler.h"
 #include "PluginMessage.h"
+#include "MenuBarObject.h"
 
 class MidiManager : public MidiInputCallback,
                     public ActionBroadcaster,
@@ -37,6 +38,9 @@ public:
 	//required of any superclass of MidiInputCallback.  This is called everytime a midi message is played
 	void handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message);
     void timerCallback(int timerId);
+
+	MenuBarObject *mbo;
+	void setMenuBarObject(MenuBarObject *mbo);
 
     AudioEngine* audioEngine;
     Sampler* sampler;
