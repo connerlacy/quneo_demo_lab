@@ -21,7 +21,7 @@
 	<key>CFBundleURLTypes</key>
 	<array/>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>1.0.2</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Keith McMillen Instruments</string>
 	<key>NSServices</key>

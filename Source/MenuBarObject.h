@@ -24,6 +24,10 @@ public:
 	AudioSourcePlayer *audioPlayer;
 	AudioSourcePlayer *filterPlayer;
     
+    float lastLooperGain;
+    float lastAudioGain;
+    float lastFilterGain;
+    
     const StringArray getMenuBarNames();
 	const PopupMenu getMenuForIndex(int topLevelMenuIndex, const String &menuName);
 	void menuItemSelected(int menuItemID, int topLevelMenuIndex);

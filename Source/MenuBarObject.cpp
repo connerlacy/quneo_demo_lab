@@ -18,6 +18,10 @@ filterPlayer(filterPlayer_)
 {
 	mute = false;
 	//this->addListener(listener);
+    
+    lastLooperGain = 1.00;
+    lastAudioGain = 1.00;
+    lastFilterGain = 1.00;
 }
 
 MenuBarObject::~MenuBarObject()
@@ -71,11 +75,27 @@ void MenuBarObject::menuItemSelected(int menuItemID, int topLevelMenuIndex)
 	{
 		DBG("mute audio");
 		mute = true;
+        
+        //Store current gains
+        lastLooperGain = looperPlayer->getGain();
+        lastAudioGain = audioPlayer->getGain();
+        lastFilterGain = filterPlayer->getGain();
+        
+        //Zero players
+        looperPlayer->setGain(0.00);
+        audioPlayer->setGain(0.00);
+        filterPlayer->setGain(0.00);
+        
 	}
 	else if(menuItemID == unMuteAudio)
 	{
 		DBG("un mute audio");
 		mute = false;
+        
+        //Restoer player gains
+        looperPlayer->setGain(lastLooperGain);
+        audioPlayer->setGain(lastAudioGain);
+        filterPlayer->setGain(lastFilterGain);
 	}
     
 #ifdef JUCE_MAC

@@ -120,8 +120,9 @@ void Sampler::releaseResources()
 
 void Sampler::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
 {
-	if(!menuBarObject->mute)
-	{
+	//if(!menuBarObject->mute)
+    if(1)
+    {
     //Clear Buffer
     bufferToFill.clearActiveBufferRegion();
     

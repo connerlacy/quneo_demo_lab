@@ -295,7 +295,8 @@ void AudioEngine::setMidiBuffer(MidiBuffer* bffr)
 
 void AudioEngine::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
 {
-	if(!menuBarObject->mute)
+	//if(!menuBarObject->mute)
+    if(1)
 	{
     
     //Clear Buffer

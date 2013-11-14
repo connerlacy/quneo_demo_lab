@@ -232,7 +232,13 @@ void LongSlider::setState(bool st)
 void LongSlider::setLoc(float loc)
 {
     location = loc/127.0f*280.0f + 13.0f;
-    sampler->setPlayerGain(loc/127.0f);
+    
+    //Only if audio is UN-Muted, set gain using longslider
+    if(!sampler->menuBarObject->mute)
+    {
+        sampler->setPlayerGain(loc/127.0f);
+    }
+    
     this->repaint();
 }
 
