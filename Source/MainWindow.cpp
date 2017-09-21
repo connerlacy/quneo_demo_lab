@@ -34,8 +34,10 @@ MainAppWindow::MainAppWindow()
     sampler = new Sampler();
 	sampler->setMenuBarObject(menuBarObject);
     looperSourcePlayer.setSource(sampler);
+    
     samplerFilter = new IIRFilterAudioSource(sampler, true);
     filterSourcePlayer.setSource(samplerFilter);
+    
     deviceManager.addAudioCallback(&filterSourcePlayer);
     sampler->setPlayer(&filterSourcePlayer);
  
